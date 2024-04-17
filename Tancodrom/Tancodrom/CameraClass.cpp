@@ -48,7 +48,7 @@ void Camera::MoveRightQuat(float deltaTime)
 
 }
 
-}
+
 
 void Camera::MoveLeftQuat(float deltaTime)
 {
@@ -83,7 +83,7 @@ void Camera::ResetCamera()
 	pitch = PITCH;
 	FoVy = FOV;
 	orientation = glm::quat(1, 0, 0, 0);
-	UpdateCameraVectors();
+	//UpdateCameraVectors();  nu gaseste metoda asta
 }
 
 
@@ -106,7 +106,7 @@ void Camera::Set(const int width, const int height, const glm::vec3& position)
 	lastY = height / 2.0f;
 	bFirstMouseMove = true;
 
-	UpdateCameraVectors();
+	//UpdateCameraVectors();  la fel si aici
 }
 
 

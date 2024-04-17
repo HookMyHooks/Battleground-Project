@@ -70,6 +70,22 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>..\..\_external\stb;..\..\_external\GLFW;..\..\_external\glm;..\..\_external\GLEW\GL;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\_external\GLFW\x64;..\..\_external\GLEW\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>..\..\_external\stb;..\..\_external\GLFW;..\..\_external\glm;..\..\_external\GLEW\GL;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\_external\GLFW\x64;..\..\_external\GLEW\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>..\..\_external\stb;..\..\_external\GLFW;..\..\_external\glm;..\..\_external\GLEW\GL;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\_external\GLFW\x64;..\..\_external\GLEW\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>..\..\_external\stb;..\..\_external\GLFW;..\..\_external\glm;..\..\_external\GLEW\GL;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\_external\GLFW\x64;..\..\_external\GLEW\x64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -127,7 +143,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CameraClass.cpp" />
+    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Model.cpp" />
+    <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Tancodrom.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CameraClass.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Model.h" />
+    <ClInclude Include="Shader.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
