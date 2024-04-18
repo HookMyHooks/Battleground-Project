@@ -4,7 +4,7 @@
 #include <math.h>
 
 #define GLM_ENABLE_EXPERIMENTAL
-#include <glew.h>
+#include <GL/glew.h>
 #include <glfw3.h>
 #include <GLM.hpp>
 #include <gtc/matrix_transform.hpp>

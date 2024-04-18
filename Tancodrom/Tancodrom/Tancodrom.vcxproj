@@ -79,8 +79,8 @@
     <LibraryPath>..\..\_external\GLFW\x64;..\..\_external\GLEW\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>..\..\_external\stb;..\..\_external\GLFW;..\..\_external\glm;..\..\_external\GLEW\GL;$(IncludePath)</IncludePath>
-    <LibraryPath>..\..\_external\GLFW\x64;..\..\_external\GLEW\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\_external\Assimp\;..\..\_external\stb;..\..\_external\GLFW;..\..\_external\glm;..\..\_external\GLEW\;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\_external\Assimp\assimp\x64\;..\..\_external\GLFW\x64;..\..\_external\GLEW\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>..\..\_external\stb;..\..\_external\GLFW;..\..\_external\glm;..\..\_external\GLEW\GL;$(IncludePath)</IncludePath>
@@ -151,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CameraClass.h" />
+    <ClInclude Include="ECameraMovementType.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="Shader.h" />
