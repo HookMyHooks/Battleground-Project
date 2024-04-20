@@ -388,14 +388,14 @@ int main()
 	std::string objFileName = (currentPath + "\\Models\\CylinderProject.obj");
 	Model objModel(objFileName, false);
 
-	Tank t1;
+	Tank t1,t2;
 
 
 	float tankSpeed = 2.5f; // Speed of the tank
 	float tankRotation = 0.0f; //-158, 156
 	//glm::vec3 tankPosition = glm::vec3(0.0f, 0.0f, 0.0f);
 	t1.m_position = glm::vec3(0.0f, 0.0f, 0.0f);
-
+	t2.m_position = glm::vec3(5.0f, 5.0f, 0.0f);
 
 	// render loop
 	while (!glfwWindowShouldClose(window)) {
@@ -448,6 +448,21 @@ int main()
 		t1.m_headMat4 = glm::translate(t1.m_headMat4, -t1.m_headPivot); // Translate back to the original position
 		lightingShader.setMat4("model", t1.m_headMat4);
 		t1.GetHeadModel().Draw(lightingShader);
+		
+
+		t2.m_headPivot = glm::vec3(0.0f, 0.0f, -0.6f);
+		t2.m_tankBaseMat4 = glm::mat4(0.3f);
+		t2.m_tankBaseMat4 = glm::scale(t2.m_tankBaseMat4, glm::vec3(0.5f));
+		t2.m_tankBaseMat4 = glm::translate(t2.m_tankBaseMat4, t2.m_position);
+		t2.m_bodyMat4 = t2.m_tankBaseMat4;
+		lightingShader.setMat4("model", t2.m_bodyMat4);
+		t2.GetBodyModel().Draw(lightingShader);
+
+		t2.m_headMat4 = glm::translate(t2.m_tankBaseMat4, glm::vec3(0.17f, 0.0f, 0.0f)); // Initial position
+		t2.m_headMat4 = glm::translate(t2.m_headMat4, t2.m_headPivot); // Translate to the new pivot point
+		lightingShader.setMat4("model", t2.m_headMat4);
+		t2.GetHeadModel().Draw(lightingShader);
+
 
 		// also draw the lamp object
 		lampShader.use();
