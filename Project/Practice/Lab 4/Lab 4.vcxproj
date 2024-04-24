@@ -73,7 +73,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>..\..\external\json;..\..\external\stb;..\..\external\glfw-3.4.bin.WIN64\include\GLFW;..\..\external\glm;..\..\external\glew-2.1.0\include;..\..\external\freeglut\include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\..\external\glfw-3.4.bin.WIN64\lib-vc2022;..\..\external\freeglut\lib\x64;..\..\external\glew-2.1.0\lib\Release\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\..\external\glfw-3.4.bin.WIN64\lib-vc2022;..\..\external\freeglut\lib\x64;..\..\external\glew-2.1.0\x64\;..\..\external\glew-2.1.0\lib\Release\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>..\..\external\stb;..\..\external\glfw-3.4.bin.WIN64\include\GLFW;..\..\external\glm;..\..\external\glew-2.1.0\include;..\..\external\freeglut\include;$(IncludePath)</IncludePath>
@@ -114,6 +114,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>/D _SILENCE_ALL_CXX17_DEPRECATION_WARNINGS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
