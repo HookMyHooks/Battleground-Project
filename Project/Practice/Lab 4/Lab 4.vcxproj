@@ -151,10 +151,12 @@
   <ItemGroup>
     <None Include="default.frag" />
     <None Include="default.vert" />
+    <None Include="fragmentShader.fs" />
     <None Include="light.frag" />
     <None Include="light.vert" />
     <None Include="skybox.frag" />
     <None Include="skybox.vert" />
+    <None Include="vertexShader.vs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
