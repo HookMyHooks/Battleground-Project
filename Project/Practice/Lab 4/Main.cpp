@@ -232,7 +232,14 @@ int main()
 		modelHelicopter.Draw(shaderProgram, camera, glm::vec3(-1.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(10.0f, 10.0f, 10.0f));
 		modelAirplane.Draw(shaderProgram, camera, glm::vec3(-5.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.0f, 2.0f, 2.0f));
 		//modelGround.Draw(shaderProgram, camera, glm::vec3(0.0f, -1.0f, 0.0f), glm::quat( glm::vec3(1.0f, 0.0f, 0.0f)), glm::vec3(1.0f, 1.0f, 1.0f));
-		modelGround.Draw(shaderProgram, camera, glm::vec3(-12.0f, -30.0f, 0.0f), glm::quat(glm::vec3(0.0f, 4.5f, 0.0f)), glm::vec3(3.0f, 3.0f, 3.0f));
+		//modelGround.Draw(shaderProgram, camera, glm::vec3(-12.0f, -30.0f, 0.0f), glm::quat(glm::vec3(0.0f, 4.5f, 0.0f)), glm::vec3(3.0f, 3.0f, 3.0f));
+		int numInstances = 10; 
+		float ySpacing = 40.0f; 
+
+		for (int i = 0; i < numInstances; i++) {
+			float yOffset = -30.0f + ySpacing * i; 
+			modelGround.Draw(shaderProgram, camera, glm::vec3(-12.0f, yOffset, 0.0f), glm::quat(glm::vec3(4.0f, 4.5f, 0.0f)), glm::vec3(3.0f, 3.0f, 3.0f));
+		}
 
 		//glm::quat(glm::radians(-90.0f), glm::vec3(0.0f, 1.1f, 0.2f))
 		// Since the cubemap will always have a depth of 1.0, we need that equal sign so it doesn't get discarded
