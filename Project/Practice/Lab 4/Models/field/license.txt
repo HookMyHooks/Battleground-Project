@@ -1,0 +1,11 @@
+Model Information:
+* title:	Oflow Field
+* source:	https://sketchfab.com/3d-models/oflow-field-5e0859c260e248b996a12d1f03082618
+* author:	Shiro Morturn (https://sketchfab.com/morturn)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Oflow Field" (https://sketchfab.com/3d-models/oflow-field-5e0859c260e248b996a12d1f03082618) by Shiro Morturn (https://sketchfab.com/morturn) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
