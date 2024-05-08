@@ -115,7 +115,6 @@ int main()
 	Model modelGround((parentDir + modelPath).c_str());
 
 
-
 	// Variables to create periodic event for FPS displaying
 	double prevTime = 0.0;
 	double crntTime = 0.0;
