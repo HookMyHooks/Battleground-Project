@@ -103,16 +103,15 @@ int main()
 
 	Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
 
-
-	std::string parentDir = "C:/Users/Ioana/Desktop/Project/Practice/";
+	std::filesystem::path currentDir = std::filesystem::current_path();
 	std::string modelPath = "Models/helicopter/scene.gltf";
-	Model modelHelicopter((parentDir + modelPath).c_str());
+	Model modelHelicopter( modelPath.c_str());
 
 	modelPath = "Models/airplane/scene.gltf";
-	Model modelAirplane((parentDir + modelPath).c_str());
+	Model modelAirplane( modelPath.c_str());
 
 	modelPath = "Models/ground/scene.gltf";
-	Model modelGround((parentDir + modelPath).c_str());
+	Model modelGround(modelPath.c_str());
 
 
 	// Variables to create periodic event for FPS displaying
@@ -145,12 +144,12 @@ int main()
 	// All the faces of the cubemap (make sure they are in this exact order)
 	std::string facesCubemap[6] =
 	{
-		parentDir + "Skybox/right.jpg",
-		parentDir + "Skybox/left.jpg",
-		parentDir + "Skybox/top.jpg",
-		parentDir + "Skybox/bottom.jpg",
-		parentDir + "Skybox/front.jpg",
-		parentDir + "Skybox/back.jpg"
+		 "Skybox/right.jpg",
+		 "Skybox/left.jpg",
+		 "Skybox/top.jpg",
+		 "Skybox/bottom.jpg",
+		 "Skybox/front.jpg",
+		 "Skybox/back.jpg"
 	};
 
 	// Creates the cubemap texture object

@@ -1,9 +1,17 @@
 #include"Shader.h"
 
-// Reads a text file and outputs a string with everything in the text file
 std::string get_file_contents(const char* filename)
 {
-	std::ifstream in(filename, std::ios::binary);
+	// Obține directorul de lucru curent
+	std::filesystem::path currentDir = std::filesystem::current_path();
+
+	// Concatenează calea relativă specificată cu directorul de lucru curent
+	std::filesystem::path absolutePath = currentDir / filename;
+
+	// Converteste calea absolută la șir de caractere C
+	std::string absolutePathStr = absolutePath.string();
+
+	std::ifstream in(absolutePathStr, std::ios::binary);
 	if (in)
 	{
 		std::string contents;

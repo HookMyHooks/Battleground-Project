@@ -4,6 +4,7 @@ Model::Model(const char* file)
 {
 	// Make a JSON object
 	std::string text = get_file_contents(file);
+
 	JSON = json::parse(text);
 	
 	// Get the binary data
