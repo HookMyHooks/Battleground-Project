@@ -1,0 +1,13 @@
+Issues
+
+1. Texturile de pe elicopter se transfera la avion si tanc
+2. Nu se incarca modele complexe 
+3. (Optional) Podeaua blurata 
+
+
+Stuff to do next:
+
+1. Tank class (again :D)
+2. Model Movement
+3. Particles 
+4. Night/Day Cycle
