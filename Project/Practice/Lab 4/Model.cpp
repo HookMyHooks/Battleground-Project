@@ -6,7 +6,7 @@ Model::Model(const char* file)
 	std::string text = get_file_contents(file);
 
 	JSON = json::parse(text);
-	
+
 	// Get the binary data
 	Model::file = file;
 	data = getData();
@@ -15,13 +15,13 @@ Model::Model(const char* file)
 	traverseNode(0);
 }
 
-void Model::Draw(Shader& shader, Camera& camera,glm::vec3 translation, glm::quat rotation, glm::vec3 scale)
+void Model::Draw(Shader& shader, Camera& camera, glm::vec3 translation, glm::quat rotation, glm::vec3 scale)
 {
 
 	// Go over all meshes and draw each one
 	for (unsigned int i = 0; i < meshes.size(); i++)
 	{
-		meshes[i].Mesh::Draw(shader, camera,translation,rotation,scale, matricesMeshes[i]);
+		meshes[i].Mesh::Draw(shader, camera, translation, rotation, scale, matricesMeshes[i]);
 	}
 }
 
@@ -229,6 +229,57 @@ std::vector<GLuint> Model::getIndices(json accessor)
 
 	return indices;
 }
+//
+//std::vector<Texture> Model::getTextures()
+//{
+//	std::vector<Texture> textures;
+//
+//	std::string fileStr = std::string(file);
+//	std::string fileDirectory = fileStr.substr(0, fileStr.find_last_of('/') + 1);
+//
+//	// Go over all images
+//	for (unsigned int i = 0; i < JSON["images"].size(); i++)
+//	{
+//		// uri of current texture
+//		std::string texPath = JSON["images"][i]["uri"];
+//		// Check if the texture has already been loaded
+//		bool skip = false;
+//		for (unsigned int j = 0; j < loadedTexName.size(); j++)
+//		{
+//			if (loadedTexName[j] == texPath)
+//			{
+//				textures.push_back(loadedTex[j]);
+//				skip = true;
+//				break;
+//			}
+//		}
+//
+//		// If the texture has been loaded, skip this
+//		if (!skip)
+//		{
+//			// Load diffuse texture
+//			if (texPath.find("baseColor") != std::string::npos)
+//			{
+//				Texture diffuse = Texture((fileDirectory + texPath).c_str(), "diffuse", loadedTex.size());
+//				textures.push_back(diffuse);
+//				loadedTex.push_back(diffuse);
+//				loadedTexName.push_back(texPath);
+//			}
+//			// Load specular texture
+//			else if (texPath.find("metallicRoughness") != std::string::npos)
+//			{
+//				Texture specular = Texture((fileDirectory + texPath).c_str(), "specular", loadedTex.size());
+//				textures.push_back(specular);
+//				loadedTex.push_back(specular);
+//				loadedTexName.push_back(texPath);
+//			}
+//			
+//		}
+//	}
+//
+//	return textures;
+//}
+
 
 std::vector<Texture> Model::getTextures()
 {
@@ -238,47 +289,96 @@ std::vector<Texture> Model::getTextures()
 	std::string fileDirectory = fileStr.substr(0, fileStr.find_last_of('/') + 1);
 
 	// Go over all images
-	for (unsigned int i = 0; i < JSON["images"].size(); i++)
+	for (const auto& image : JSON["images"])
 	{
-		// uri of current texture
-		std::string texPath = JSON["images"][i]["uri"];
 
-		// Check if the texture has already been loaded
-		bool skip = false;
-		for (unsigned int j = 0; j < loadedTexName.size(); j++)
+		if (!image.contains("name"))
 		{
-			if (loadedTexName[j] == texPath)
+			// uri of current texture
+			std::string texPath = image["uri"];
+			
+
+			// Check if the texture has already been loaded
+			bool skip = false;
+			for (unsigned int j = 0; j < loadedTexName.size(); j++)
 			{
-				textures.push_back(loadedTex[j]);
-				skip = true;
-				break;
+				if (loadedTexName[j] == texPath)
+				{
+					textures.push_back(loadedTex[j]);
+					skip = true;
+					break;
+				}
+			}
+
+			// If the texture has not been loaded, load it
+			if (!skip)
+			{
+				// Determine texture type based on texName
+				std::string textureType;
+				if (texPath.find("baseColor") != std::string::npos)
+				{
+
+					Texture newTexture((fileDirectory + texPath).c_str(), "diffuse", loadedTex.size());
+					textures.push_back(newTexture);
+					loadedTex.push_back(newTexture);
+				}
+				else if (texPath.find("metallicRoughness") != std::string::npos)
+				{
+					Texture newTexture((fileDirectory + texPath).c_str(), "specular", loadedTex.size());
+					textures.push_back(newTexture);
+					loadedTex.push_back(newTexture);
+				}
+
+				// Load the texture
+
 			}
 		}
-
-		// If the texture has been loaded, skip this
-		if (!skip)
+		else
 		{
-			// Load diffuse texture
-			if (texPath.find("baseColor") != std::string::npos)
+			// uri of current texture
+			std::string texPath = image["uri"];
+			std::string texName = image["name"];
+
+
+			// Check if the texture has already been loaded
+			bool skip = false;
+			for (unsigned int j = 0; j < loadedTexName.size(); j++)
 			{
-				Texture diffuse = Texture((fileDirectory + texPath).c_str(), "diffuse", loadedTex.size());
-				textures.push_back(diffuse);
-				loadedTex.push_back(diffuse);
-				loadedTexName.push_back(texPath);
+				if (loadedTexName[j] == texPath)
+				{
+					textures.push_back(loadedTex[j]);
+					skip = true;
+					break;
+				}
 			}
-			// Load specular texture
-			else if (texPath.find("metallicRoughness") != std::string::npos)
+
+			// If the texture has not been loaded, load it
+			if (!skip)
 			{
-				Texture specular = Texture((fileDirectory + texPath).c_str(), "specular", loadedTex.size());
-				textures.push_back(specular);
-				loadedTex.push_back(specular);
-				loadedTexName.push_back(texPath);
+				// Determine texture type based on texName
+				std::string textureType;
+				if (texName.find("baseColor") != std::string::npos)
+				{
+
+					Texture newTexture((fileDirectory + texPath).c_str(), "diffuse", loadedTex.size());
+					textures.push_back(newTexture);
+					loadedTex.push_back(newTexture);
+				}
+				else if (texName.find("metallicRoughness") != std::string::npos)
+				{
+					Texture newTexture((fileDirectory + texPath).c_str(), "specular", loadedTex.size());
+					textures.push_back(newTexture);
+					loadedTex.push_back(newTexture);
+				}
 			}
+
 		}
 	}
 
 	return textures;
 }
+
+
 
 std::vector<Vertex> Model::assembleVertices
 (

@@ -107,11 +107,6 @@
     "images" : [
         {
             "mimeType" : "image/png",
-            "name" : "13_-_Default_normal",
-            "uri" : "13_-_Default_normal.png"
-        },
-        {
-            "mimeType" : "image/png",
             "name" : "13_-_Default_metallicRoughness",
             "uri" : "specular.png"
         },

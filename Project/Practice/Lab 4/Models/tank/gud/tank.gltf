@@ -807,28 +807,23 @@
 	],
 	"images":[
 		{
-			"mimeType":"image/jpeg",
-			"name":"Accent_albedo",
+			
 			"uri":"Accent_albedo.jpg"
 		},
 		{
-			"mimeType":"image/jpeg",
-			"name":"Turret_albedo",
+			
 			"uri":"Turret_albedo.jpg"
 		},
 		{
-			"mimeType":"image/jpeg",
-			"name":"Tracks_albedo",
+			
 			"uri":"Tracks_albedo.jpg"
 		},
 		{
-			"mimeType":"image/jpeg",
-			"name":"Strips_albedo",
+			
 			"uri":"Strips_albedo.jpg"
 		},
 		{
-			"mimeType":"image/jpeg",
-			"name":"Hull_albedo",
+			
 			"uri":"Hull_albedo.jpg"
 		}
 	],

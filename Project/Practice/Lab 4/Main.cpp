@@ -104,6 +104,7 @@ int main()
 	Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
 
 	std::filesystem::path currentDir = std::filesystem::current_path();
+	
 	std::string modelPath = "Models/helicopter/scene.gltf";
 	Model modelHelicopter( modelPath.c_str());
 
@@ -111,10 +112,10 @@ int main()
 	Model modelAirplane( modelPath.c_str());
 
 	modelPath = "Models/field/scene.gltf";
-	Model modelGround(modelPath.c_str());
+	//Model modelGround(modelPath.c_str());
 
-	modelPath = "Models/tank/tanknotex.gltf";
-	Model modelTank(modelPath.c_str());
+	modelPath = "Models/tank/gud/tank.gltf";
+	//Model modelTank(modelPath.c_str());
 
 
 	// Variables to create periodic event for FPS displaying
@@ -234,7 +235,7 @@ int main()
 
 		modelHelicopter.Draw(shaderProgram, camera, glm::vec3(-1.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(10.0f, 10.0f, 10.0f));
 		modelAirplane.Draw(shaderProgram, camera, glm::vec3(-5.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.0f, 2.0f, 2.0f));
-		modelTank.Draw(shaderProgram, camera, glm::vec3(5.0f, 5.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.0f, 2.0f, 2.0f));
+		//modelTank.Draw(shaderProgram, camera, glm::vec3(5.0f, 5.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.0f, 2.0f, 2.0f));
 
 		//modelGround.Draw(shaderProgram, camera, glm::vec3(0.0f, -1.0f, 0.0f), glm::quat( glm::vec3(1.0f, 0.0f, 0.0f)), glm::vec3(1.0f, 1.0f, 1.0f));
 		//modelGround.Draw(shaderProgram, camera, glm::vec3(-12.0f, -30.0f, 0.0f), glm::quat(glm::vec3(0.0f, 4.5f, 0.0f)), glm::vec3(3.0f, 3.0f, 3.0f));
@@ -243,7 +244,7 @@ int main()
 
 		for (int i = 0; i < numInstances; i++) {
 			float yOffset = -30.0f + ySpacing * i; 
-			modelGround.Draw(shaderProgram, camera, glm::vec3(-12.0f, yOffset, 0.0f), glm::quat(glm::vec3(4.0f, 4.5f, 0.0f)), glm::vec3(3.0f, 3.0f, 3.0f));
+			//modelGround.Draw(shaderProgram, camera, glm::vec3(-12.0f, yOffset, 0.0f), glm::quat(glm::vec3(4.0f, 4.5f, 0.0f)), glm::vec3(3.0f, 3.0f, 3.0f));
 		}
 
 		//glm::quat(glm::radians(-90.0f), glm::vec3(0.0f, 1.1f, 0.2f))

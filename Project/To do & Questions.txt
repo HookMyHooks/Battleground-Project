@@ -1,9 +1,9 @@
 Issues
 
-1. Texturile de pe elicopter se transfera la avion si tanc
-2. Nu se incarca modele complexe 
-3. (Optional) Podeaua blurata 
-
+1. Texturile de pe elicopter se transfera la avion si tanc - probleme la loading - "images" - problema e uri = name in cod
+2. Nu se incarca modele complexe => el	icea elicopterului nu o sa se poata misca   - probleme la loading
+3. (Optional) Podeaua blurata - schimbat 
+4. ObjLoader - n a facut 
 
 Stuff to do next:
 
