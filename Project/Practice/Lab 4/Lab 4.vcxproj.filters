@@ -65,8 +65,6 @@
     <None Include="skybox.vert">
       <Filter>Resource Files\Shaders</Filter>
     </None>
-    <None Include="vertexShader.vs" />
-    <None Include="fragmentShader.fs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h">
