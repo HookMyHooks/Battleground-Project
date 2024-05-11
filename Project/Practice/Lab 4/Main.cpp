@@ -48,9 +48,30 @@ unsigned int skyboxIndices[] =
 	3, 7, 6,
 	6, 2, 3
 };
+std::vector<std::string> facesDay
+{
+	"Skybox\\right.jpg",
+	"Skybox\\left.jpg",
+	"Skybox\\top.jpg",
+	"Skybox\\bottom.jpg",
+	"Skybox\\back.jpg",
+	"Skybox\\front.jpg"
+};
+
+std::vector<std::string>facesNight
+{
+
+	"Skybox_night\\skybox_night_front.jpg",
+	"Skybox_night\\skybox_night_back.jpg",
+	"Skybox_night\\skybox_night_left.jpg",
+	"Skybox_night\\skybox_night_right.jpg",
+	"Skybox_night\\skybox_night_top.jpg",
+	"Skybox_night\\skybox_night_bottom.jpg"
+};
 
 
-
+float blendFactor = 0;
+float ambientFactor = 0.9;
 
 int main()
 {
@@ -132,6 +153,8 @@ int main()
 
 	skyboxShader.Activate();
 	glUniform1i(glGetUniformLocation(skyboxShader.ID, "skybox"), 0);
+
+
 
 
 	glEnable(GL_DEPTH_TEST);
@@ -239,6 +262,25 @@ int main()
 		}
 	}
 
+	//night skybox
+	int width, height, nrChannels;
+	for (unsigned int i = 0; i < facesNight.size(); i++) {
+		unsigned char* data = stbi_load(facesNight[i].c_str(), &width, &height, &nrChannels, 0);
+		if (data) {
+			stbi_set_flip_vertically_on_load(false);
+			glTexImage2D(
+				GL_TEXTURE_CUBE_MAP_POSITIVE_X + i,
+				0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data
+			);
+			glGetError();
+			stbi_image_free(data);
+		}
+		else {
+			std::cout << "Cubemap texture failed to load at path: " << facesNight[i] << std::endl;
+		}
+	}
+
+	
 
 
 	//main while loop
