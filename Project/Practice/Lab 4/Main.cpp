@@ -145,15 +145,15 @@ int main()
 	Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
 
 	std::filesystem::path currentDir = std::filesystem::current_path();
-	
+
 	std::string modelPath = "Models/helicopter/scene.gltf";
-	Model modelHelicopter( modelPath.c_str());
+	Model modelHelicopter(modelPath.c_str());
 
 	modelPath = "Models/airplane/scene.gltf";
-	Model modelAirplane( modelPath.c_str());
+	Model modelAirplane(modelPath.c_str());
 
-	modelPath = "Models/field/scene.gltf";
-	//Model modelGround(modelPath.c_str());
+	modelPath = "Models/grass/scene.gltf";
+	Model modelGround(modelPath.c_str());
 
 	modelPath = "Models/tank/gud/tank.gltf";
 	//Model modelTank(modelPath.c_str());
@@ -271,19 +271,23 @@ int main()
 		camera.Inputs(window);
 		camera.updateMatrix(45.0f, 0.1f, 100.0f);
 
-
-
 		modelHelicopter.Draw(shaderProgram, camera, glm::vec3(-1.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(10.0f, 10.0f, 10.0f));
 		modelAirplane.Draw(shaderProgram, camera, glm::vec3(-5.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.0f, 2.0f, 2.0f));
 		//modelTank.Draw(shaderProgram, camera, glm::vec3(5.0f, 5.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.0f, 2.0f, 2.0f));
 
-		//modelGround.Draw(shaderProgram, camera, glm::vec3(0.0f, -1.0f, 0.0f), glm::quat( glm::vec3(1.0f, 0.0f, 0.0f)), glm::vec3(1.0f, 1.0f, 1.0f));
-		//modelGround.Draw(shaderProgram, camera, glm::vec3(-12.0f, -30.0f, 0.0f), glm::quat(glm::vec3(0.0f, 4.5f, 0.0f)), glm::vec3(3.0f, 3.0f, 3.0f));
-		int numInstances = 10; 
-		float ySpacing = 40.0f; 
+
+		for (float i = -5.0; i <= 5.0; i = i + 0.2)
+		{
+			for (float j = -5.0; j <= 5.0; j = j + 0.2)
+			{
+				modelGround.Draw(shaderProgram, camera, glm::vec3(i, -100.0f, j), glm::quat(glm::vec3(1.0f, 0.0f, 0.0f)), glm::vec3(2.0f, 2.0f, 2.0f));
+			}
+		}
+		int numInstances = 10;
+		float ySpacing = 40.0f;
 
 		for (int i = 0; i < numInstances; i++) {
-			float yOffset = -30.0f + ySpacing * i; 
+			float yOffset = -30.0f + ySpacing * i;
 			//modelGround.Draw(shaderProgram, camera, glm::vec3(-12.0f, yOffset, 0.0f), glm::quat(glm::vec3(4.0f, 4.5f, 0.0f)), glm::vec3(3.0f, 3.0f, 3.0f));
 		}
 
