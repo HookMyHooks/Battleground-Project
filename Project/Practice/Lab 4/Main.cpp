@@ -244,26 +244,8 @@ int main()
 	//main while loop
 	while (!glfwWindowShouldClose(window))
 	{
-		// Updates counter and times
-		crntTime = glfwGetTime();
-		timeDiff = crntTime - prevTime;
-		counter++;
-
-		if (timeDiff >= 1.0 / 30.0)
-		{
-			// Creates new title
-			std::string FPS = std::to_string((1.0 / timeDiff) * counter);
-			std::string ms = std::to_string((timeDiff / counter) * 1000);
-			std::string newTitle = "Tancodrom" + FPS + "FPS / " + ms + "ms";
-			glfwSetWindowTitle(window, newTitle.c_str());
-
-			// Resets times and counter
-			prevTime = crntTime;
-			counter = 0;
-
-			// Use this if you have disabled VSync
-			//camera.Inputs(window);
-		}
+		std::string newTitle = "Tancodrom";
+		glfwSetWindowTitle(window, newTitle.c_str());
 
 		glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
