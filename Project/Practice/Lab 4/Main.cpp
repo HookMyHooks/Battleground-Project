@@ -14,6 +14,7 @@ namespace fs = std::filesystem;
 const unsigned width = 1200;
 const unsigned height = 900;
 
+
 float skyboxVertices[] =
 {
 	//   Coordinates
@@ -72,6 +73,15 @@ std::vector<std::string>facesNight
 
 float blendFactor = 0;
 float ambientFactor = 0.9;
+
+void processInput(GLFWwindow* window)
+{
+	if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
+		blendFactor = std::min(blendFactor + 0.01f, 1.0f);  // Increase blend factor towards night
+	if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
+		blendFactor = std::max(blendFactor - 0.01f, 0.0f);  // Decrease blend factor towards day
+}
+
 
 int main()
 {
@@ -220,6 +230,8 @@ int main()
 		 "Skybox/back.jpg"
 	};
 
+
+
 	// Creates the cubemap texture object
 	unsigned int cubemapTexture;
 	glGenTextures(1, &cubemapTexture);
@@ -261,6 +273,14 @@ int main()
 			stbi_image_free(data);
 		}
 	}
+	unsigned int nightCubemapTexture;
+	glGenTextures(1, &nightCubemapTexture);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, nightCubemapTexture);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 
 	//night skybox
 	int width, height, nrChannels;
@@ -286,6 +306,7 @@ int main()
 	//main while loop
 	while (!glfwWindowShouldClose(window))
 	{
+		processInput(window);
 		std::string newTitle = "Tancodrom";
 		glfwSetWindowTitle(window, newTitle.c_str());
 
@@ -320,6 +341,8 @@ int main()
 		glDepthFunc(GL_LEQUAL);
 
 		skyboxShader.Activate();
+		glUniform1f(glGetUniformLocation(skyboxShader.ID, "blendFactor"), blendFactor);
+
 		glm::mat4 view = glm::mat4(1.0f);
 		glm::mat4 projection = glm::mat4(1.0f);
 		// We make the mat4 into a mat3 and then a mat4 again in order to get rid of the last row and column
@@ -334,6 +357,12 @@ int main()
 		glBindVertexArray(skyboxVAO);
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
+		glUniform1i(glGetUniformLocation(skyboxShader.ID, "skybox1"), 0); 
+
+		glActiveTexture(GL_TEXTURE1);
+		glBindTexture(GL_TEXTURE_CUBE_MAP, nightCubemapTexture);
+		glUniform1i(glGetUniformLocation(skyboxShader.ID, "skybox2"), 1);  
+
 		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 
