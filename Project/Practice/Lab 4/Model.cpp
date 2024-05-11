@@ -9,6 +9,7 @@ Model::Model(const char* file)
 
 	// Get the binary data
 	Model::file = file;
+	std::cout << "\n \n"<<file << "\n \n";
 	data = getData();
 
 	// Traverse all nodes
@@ -52,9 +53,23 @@ void Model::loadMesh(unsigned int indMesh)
 
 void Model::traverseNode(unsigned int nextNode, glm::mat4 matrix)
 {
+
+	if (visitedNodes.find(nextNode) != visitedNodes.end()) {
+		return; // Node already processed, skip
+	}
+
+	// Mark current node as visited
+	visitedNodes.insert(nextNode);
+	std::string name;
+
 	// Current node
 	json node = JSON["nodes"][nextNode];
-
+	std::cout << "\n \n" << node << "\n\n";
+	if (node.contains("name"))
+	{
+		name = node["name"];
+	}
+	else name = "-";
 	// Get translation if it exists
 	glm::vec3 translation = glm::vec3(0.0f, 0.0f, 0.0f);
 	if (node.find("translation") != node.end())
@@ -97,14 +112,14 @@ void Model::traverseNode(unsigned int nextNode, glm::mat4 matrix)
 	}
 
 	// Initialize matrices
-	glm::mat4 trans = glm::mat4(1.0f);
-	glm::mat4 rot = glm::mat4(1.0f);
 	glm::mat4 sca = glm::mat4(1.0f);
+	glm::mat4 rot = glm::mat4(1.0f);
+	glm::mat4 trans = glm::mat4(1.0f);
 
 	// Use translation, rotation, and scale to change the initialized matrices
-	trans = glm::translate(trans, translation);
-	rot = glm::mat4_cast(rotation);
 	sca = glm::scale(sca, scale);
+	rot = glm::mat4_cast(rotation);
+	trans = glm::translate(trans, translation);
 
 	// Multiply all matrices together
 	glm::mat4 matNextNode = matrix * matNode * trans * rot * sca;
@@ -112,9 +127,9 @@ void Model::traverseNode(unsigned int nextNode, glm::mat4 matrix)
 	// Check if the node contains a mesh and if it does load it
 	if (node.find("mesh") != node.end())
 	{
-		translationsMeshes.push_back(translation);
-		rotationsMeshes.push_back(rotation);
 		scalesMeshes.push_back(scale);
+		rotationsMeshes.push_back(rotation);
+		translationsMeshes.push_back(translation);
 		matricesMeshes.push_back(matNextNode);
 
 		loadMesh(node["mesh"]);
@@ -124,8 +139,19 @@ void Model::traverseNode(unsigned int nextNode, glm::mat4 matrix)
 	if (node.find("children") != node.end())
 	{
 		for (unsigned int i = 0; i < node["children"].size(); i++)
-			traverseNode(node["children"][i], matNextNode);
+		{
+			unsigned int childNodeIndex = node["children"][i];		
+			traverseNode(childNodeIndex, matNextNode);
+		}
 	}
+
+	for (unsigned int i = 0; i < JSON["nodes"].size(); ++i) {
+		if (i != nextNode) {
+			traverseNode(i); // Recursively process other nodes
+		}
+	}
+
+
 }
 
 std::vector<unsigned char> Model::getData()

@@ -188,8 +188,8 @@ int main()
 	modelPath = "Models/grass/scene.gltf";
 	Model modelGround(modelPath.c_str());
 
-	modelPath = "Models/tank/gud/tank.gltf";
-	//Model modelTank(modelPath.c_str());
+	modelPath = "Models/tank/gud/yes/texturesTank.gltf";
+	Model modelTank(modelPath.c_str());
 
 
 	// Variables to create periodic event for FPS displaying
@@ -318,7 +318,9 @@ int main()
 
 		modelHelicopter.Draw(shaderProgram, camera, glm::vec3(-1.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(10.0f, 10.0f, 10.0f));
 		modelAirplane.Draw(shaderProgram, camera, glm::vec3(-5.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.0f, 2.0f, 2.0f));
-		//modelTank.Draw(shaderProgram, camera, glm::vec3(5.0f, 5.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.0f, 2.0f, 2.0f));
+		float angleRadians = glm::radians(90.0f);
+		glm::quat rotation = glm::angleAxis(angleRadians, glm::vec3(0.0f,0.0f, -1.0f));
+		modelTank.Draw(shaderProgram, camera, glm::vec3(5.0f, 5.0f, 1.0f),  rotation, glm::vec3(0.5f, 0.5f, 0.5f));
 
 
 		for (float i = -5.0; i <= 5.0; i = i + 0.2)

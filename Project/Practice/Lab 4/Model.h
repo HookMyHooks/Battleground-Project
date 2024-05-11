@@ -3,6 +3,7 @@
 
 #include<json.h>
 #include"Mesh.h"
+#include <unordered_set>
 
 using json = nlohmann::json;
 
@@ -16,6 +17,11 @@ public:
 	void Draw(Shader& shader, Camera& camera, glm::vec3 translation, glm::quat rotation, glm::vec3 scale);
 
 private:
+
+
+	//fixing unloading meshes
+	std::unordered_set<unsigned int> visitedNodes;
+
 	// Variables for easy access
 	const char* file;
 	std::vector<unsigned char> data;
