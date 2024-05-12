@@ -1089,13 +1089,13 @@
 	"images":[
 		{
 			"mimeType":"image/png",
-			"name":"Material-1_baseColor",
-			"uri":"Material-1_baseColor.png"
+			"name":"Material1",
+			"uri":"Material1.png"
 		},
 		{
-			"mimeType":"image/jpeg",
-			"name":"463445252005",
-			"uri":"463445252005.jpg"
+			"mimeType":"image/png",
+			"name":"463445252006_baseColor",
+			"uri":"463445252006_baseColor.png"
 		},
 		{
 			"mimeType":"image/png",
