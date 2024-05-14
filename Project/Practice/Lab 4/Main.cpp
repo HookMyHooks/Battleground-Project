@@ -235,6 +235,7 @@ int main()
 	modelPath = "Models/mountain/scene.gltf";
 	Model modelMountain(modelPath.c_str());
 
+
 	modelPath = "Models/tank/gud/yes/texturesTank.gltf";
 	Model modelTank(modelPath.c_str());
 
