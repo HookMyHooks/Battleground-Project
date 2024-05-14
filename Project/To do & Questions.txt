@@ -1,13 +1,16 @@
 Issues
 
-1. Texturile de pe elicopter se transfera la avion si tanc - probleme la loading - "images" - problema e uri = name in cod
-2. Nu se incarca modele complexe => el	icea elicopterului nu o sa se poata misca   - probleme la loading
-3. (Optional) Podeaua blurata - schimbat 
-4. ObjLoader - n a facut 
+1. Lumina schimbata proportional cu mix value de la ciclu zi/noapte 
+difuza de mixare pusa in frag shader 
+umbre din perspectiva sursei de lumina (adaugare matrice)
+
+
+2. Ground ciudat - BLENDER fara scalare/ repetare din cod 
+
 
 Stuff to do next:
 
 1. Tank class (again :D)
 2. Model Movement
 3. Particles 
-4. Night/Day Cycle
+

@@ -314,22 +314,22 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		camera.Inputs(window);
-		camera.updateMatrix(45.0f, 0.1f, 100.0f);
+		camera.updateMatrix(45.0f, 0.1f, 5000.0f);
 
 		modelHelicopter.Draw(shaderProgram, camera, glm::vec3(-1.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(10.0f, 10.0f, 10.0f));
 		modelAirplane.Draw(shaderProgram, camera, glm::vec3(-5.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.0f, 2.0f, 2.0f));
 		float angleRadians = glm::radians(90.0f);
 		glm::quat rotation = glm::angleAxis(angleRadians, glm::vec3(0.0f,0.0f, -1.0f));
-		modelTank.Draw(shaderProgram, camera, glm::vec3(5.0f, 5.0f, 1.0f),  rotation, glm::vec3(0.5f, 0.5f, 0.5f));
+		modelTank.Draw(shaderProgram, camera, glm::vec3(5.0f, 0.0f, 1.0f),  rotation, glm::vec3(0.5f, 0.5f, 0.5f));
 
 
-		for (float i = -5.0; i <= 5.0; i = i + 0.2)
+		/*for (float i = -5.0; i <= 5.0; i = i + 0.2)
 		{
 			for (float j = -5.0; j <= 5.0; j = j + 0.2)
 			{
-				modelGround.Draw(shaderProgram, camera, glm::vec3(i, -100.0f, j), glm::quat(glm::vec3(1.0f, 0.0f, 0.0f)), glm::vec3(2.0f, 2.0f, 2.0f));
 			}
-		}
+		}*/
+		modelGround.Draw(shaderProgram, camera, glm::vec3(0.0f,-1.0f, 0.0f), glm::quat(glm::vec3(0.0f,0.0f , 0.0f)), glm::vec3(1.0f, 1.0f,1.0f));
 		int numInstances = 10;
 		float ySpacing = 40.0f;
 
