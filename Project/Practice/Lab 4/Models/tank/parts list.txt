@@ -1,0 +1,3 @@
+body_Cube.035 - body
+Cube.005_Cube.004 - contains all and hopefully will move all children
+Cube.092 - 108 + 016 roti dar vedem 

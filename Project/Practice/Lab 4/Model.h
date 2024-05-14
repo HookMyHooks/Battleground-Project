@@ -1,8 +1,8 @@
 #ifndef MODEL_CLASS_H
 #define MODEL_CLASS_H
 
-#include<json.h>
 #include"Mesh.h"
+#include<json.h>
 #include <unordered_set>
 
 using json = nlohmann::json;

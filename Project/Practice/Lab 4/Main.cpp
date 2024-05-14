@@ -232,8 +232,11 @@ int main()
 	Model modelMountain(modelPath.c_str());
 
 
-	modelPath = "Models/tank/gud/yes/texturesTank.gltf";
+	modelPath = "Models/tank/texturesTank.gltf";
 	Model modelTank(modelPath.c_str());
+
+	modelPath = "Models/old_building/scene.gltf";
+	Model modelHouse(modelPath.c_str());
 
 
 	// Variables to create periodic event for FPS displaying
@@ -396,7 +399,8 @@ int main()
 
 		drawMountain(modelMountain, shaderProgram, camera);
 
-
+		modelHouse.Draw(shaderProgram, camera, glm::vec3(-1.0f, -10.0f, 1.0f),
+			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f,-1.0f,0.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
 
 
 
