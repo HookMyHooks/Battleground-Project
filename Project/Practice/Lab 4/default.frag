@@ -12,7 +12,7 @@ in vec3 color;
 // Imports the texture coordinates from the Vertex Shader
 in vec2 texCoord;
 
-uniform float mixValue = 0.5f;
+uniform float mixValue = 1.0f;
 
 
 
@@ -65,18 +65,19 @@ vec4 direcLight()
 
 
 	// diffuse lighting
-	vec3 normal = normalize(Normal);
+	vec3 normal = normalize(Normal) *mixValue;
 	vec3 lightDirection = normalize(vec3(1.0f, 1.0f, 0.0f));
-	float diffuse = max(dot(normal, lightDirection), 0.0f);
+	float diffuse = max(dot(normal, lightDirection), 0.0f) * mixValue;
+
 
 	// specular lighting
-	float specularLight = 0.50f;
+	float specularLight = 0.50f * mixValue;
 	vec3 viewDirection = normalize(camPos - crntPos);
 	vec3 reflectionDirection = reflect(-lightDirection, normal);
 	float specAmount = pow(max(dot(viewDirection, reflectionDirection), 0.0f), 16);
 	float specular = specAmount * specularLight;
 
-	return (texture(diffuse0, texCoord) * (diffuse + ambient) + texture(specular0, texCoord).r * specular) * lightColor;
+	return (texture(diffuse0, texCoord) * (diffuse + ambient) + texture(specular0, texCoord).r * specular) * lightColor * mixValue ;
 }
 
 vec4 spotLight()

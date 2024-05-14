@@ -73,6 +73,7 @@ std::vector<std::string>facesNight
 
 float blendFactor = 0;
 float ambientFactor = 0.9;
+float mixValue = 1.0f;
 
 void drawMountain(Model modelMountain, Shader shaderProgram, Camera camera)
 {
@@ -121,9 +122,18 @@ void drawMountain(Model modelMountain, Shader shaderProgram, Camera camera)
 void processInput(GLFWwindow* window)
 {
 	if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
+	{
 		blendFactor = std::min(blendFactor + 0.01f, 1.0f);  // Increase blend factor towards night
+		mixValue = 1.0f - blendFactor;
+	}
+
 	if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
-		blendFactor = std::max(blendFactor - 0.01f, 0.0f);  // Decrease blend factor towards day
+	{
+		blendFactor = std::max(blendFactor - 0.01f, 0.0f); // Decrease blend factor towards day
+		mixValue = 1.0f - blendFactor;
+	}
+	if (mixValue < 0.5f)
+		mixValue = 0.5f;
 }
 
 
@@ -188,32 +198,11 @@ int main()
 	/*glm::mat4 lightModel = glm::mat4(1.0f);
 	lightModel = glm::translate(lightModel, lightPos);*/
 
-	glm::mat4 lightProjection, lightView;
-	glm::mat4 lightSpaceMatrix;
+	glm::mat4 lightProjection, lightView, lightSpaceMatrix;
 	float near_plane = 1.0f, far_plane = 7.5f;
 	lightProjection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, near_plane, far_plane);
 	lightView = glm::lookAt(lightPos, glm::vec3(0.0f), glm::vec3(0.0, 1.0, 0.0));
 	lightSpaceMatrix = lightProjection * lightView;
-
-
-	depthShader.Activate();
-	glUniformMatrix4fv(glGetUniformLocation(depthShader.ID, "lightSpaceMatrix"), 1, GL_FALSE, glm::value_ptr(lightSpaceMatrix));
-
-	shadowShader.Activate();
-	glUniformMatrix4fv(glGetUniformLocation(shadowShader.ID, "lightSpaceMatrix"), 1, GL_FALSE, glm::value_ptr(lightSpaceMatrix));
-	glUniform1i(glGetUniformLocation(shadowShader.ID, "diffuseTexture"), 0);
-	glUniform1i(glGetUniformLocation(shadowShader.ID, "shadowMap"), 1);
-
-
-	shaderProgram.Activate();
-	glUniform4f(glGetUniformLocation(shaderProgram.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
-	glUniform3f(glGetUniformLocation(shaderProgram.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
-	glUniform1f(glGetUniformLocation(shaderProgram.ID, "mixValue"), blendFactor);
-
-
-
-	skyboxShader.Activate();
-	glUniform1i(glGetUniformLocation(skyboxShader.ID, "skybox"), 0);
 
 
 
@@ -362,6 +351,34 @@ int main()
 	while (!glfwWindowShouldClose(window))
 	{
 		processInput(window);
+		shaderProgram.Activate();
+		glUniform4f(glGetUniformLocation(shaderProgram.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
+		glUniform3f(glGetUniformLocation(shaderProgram.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
+		glUniform1f(glGetUniformLocation(shaderProgram.ID, "mixValue"), mixValue);
+
+
+
+
+
+		depthShader.Activate();
+		glUniformMatrix4fv(glGetUniformLocation(depthShader.ID, "lightSpaceMatrix"), 1, GL_FALSE, glm::value_ptr(lightSpaceMatrix));
+
+		shadowShader.Activate();
+		glUniformMatrix4fv(glGetUniformLocation(shadowShader.ID, "lightSpaceMatrix"), 1, GL_FALSE, glm::value_ptr(lightSpaceMatrix));
+		glUniform1i(glGetUniformLocation(shadowShader.ID, "diffuseTexture"), 0);
+		glUniform1i(glGetUniformLocation(shadowShader.ID, "shadowMap"), 1);
+
+
+
+
+
+
+		skyboxShader.Activate();
+		glUniform1i(glGetUniformLocation(skyboxShader.ID, "skybox"), 0);
+
+
+
+	
 		std::string newTitle = "Tancodrom";
 		glfwSetWindowTitle(window, newTitle.c_str());
 
@@ -396,8 +413,11 @@ int main()
 		// Since the cubemap will always have a depth of 1.0, we need that equal sign so it doesn't get discarded
 		glDepthFunc(GL_LEQUAL);
 
+
+		
 		skyboxShader.Activate();
 		glUniform1f(glGetUniformLocation(skyboxShader.ID, "blendFactor"), blendFactor);
+
 		//aici pui si blendfactorul de la lumina
 
 
