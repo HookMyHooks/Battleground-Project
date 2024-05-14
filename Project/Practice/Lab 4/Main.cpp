@@ -199,11 +199,18 @@ int main()
 	depthShader.Activate();
 	glUniformMatrix4fv(glGetUniformLocation(depthShader.ID, "lightSpaceMatrix"), 1, GL_FALSE, glm::value_ptr(lightSpaceMatrix));
 
+	shadowShader.Activate();
+	glUniformMatrix4fv(glGetUniformLocation(shadowShader.ID, "lightSpaceMatrix"), 1, GL_FALSE, glm::value_ptr(lightSpaceMatrix));
+	glUniform1i(glGetUniformLocation(shadowShader.ID, "diffuseTexture"), 0);
+	glUniform1i(glGetUniformLocation(shadowShader.ID, "shadowMap"), 1);
 
 
 	shaderProgram.Activate();
 	glUniform4f(glGetUniformLocation(shaderProgram.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
 	glUniform3f(glGetUniformLocation(shaderProgram.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
+	glUniform1f(glGetUniformLocation(shaderProgram.ID, "mixValue"), blendFactor);
+
+
 
 	skyboxShader.Activate();
 	glUniform1i(glGetUniformLocation(skyboxShader.ID, "skybox"), 0);
@@ -364,8 +371,8 @@ int main()
 		camera.Inputs(window);
 		camera.updateMatrix(45.0f, 0.1f, 5000.0f);
 
-		modelHelicopter.Draw(shaderProgram, camera, glm::vec3(-1.0f, -10.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(10.0f, 10.0f, 10.0f));
-		modelAirplane.Draw(shaderProgram, camera, glm::vec3(-5.0f, -9.5f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.0f, 2.0f, 2.0f));
+		modelHelicopter.Draw(shaderProgram, camera, glm::vec3(-1.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(10.0f, 10.0f, 10.0f));
+		modelAirplane.Draw(shaderProgram, camera, glm::vec3(-5.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.0f, 2.0f, 2.0f));
 		float angleRadians = glm::radians(90.0f);
 		glm::quat rotation = glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, -1.0f));
 		modelTank.Draw(shaderProgram, camera, glm::vec3(5.0f, -9.5f, 1.0f), rotation, glm::vec3(0.5f, 0.5f, 0.5f));
@@ -391,6 +398,9 @@ int main()
 
 		skyboxShader.Activate();
 		glUniform1f(glGetUniformLocation(skyboxShader.ID, "blendFactor"), blendFactor);
+		//aici pui si blendfactorul de la lumina
+
+
 
 		glm::mat4 view = glm::mat4(1.0f);
 		glm::mat4 projection = glm::mat4(1.0f);

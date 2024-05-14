@@ -68,6 +68,7 @@
     <None Include="ShadowMapping.vs" />
     <None Include="ShadowMappingDepth.fs" />
     <None Include="ShadowMappingDepth.vs" />
+    <None Include="ShadowMapping.fs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h">

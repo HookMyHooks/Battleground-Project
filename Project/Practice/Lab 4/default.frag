@@ -12,6 +12,8 @@ in vec3 color;
 // Imports the texture coordinates from the Vertex Shader
 in vec2 texCoord;
 
+uniform float mixValue = 0.5f;
+
 
 
 // Gets the Texture Units from the main function
@@ -23,6 +25,8 @@ uniform vec4 lightColor;
 uniform vec3 lightPos;
 // Gets the position of the camera from the main function
 uniform vec3 camPos;
+
+
 
 
 vec4 pointLight()
@@ -58,6 +62,7 @@ vec4 direcLight()
 {
 	// ambient lighting
 	float ambient = 0.20f;
+
 
 	// diffuse lighting
 	vec3 normal = normalize(Normal);
