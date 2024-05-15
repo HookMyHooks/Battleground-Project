@@ -62,12 +62,12 @@ std::vector<std::string> facesDay
 std::vector<std::string>facesNight
 {
 
-	"Skybox_night\\sky.jpg",
-	"Skybox_night\\sky.jpg",
-	"Skybox_night\\sky.jpg",
-	"Skybox_night\\sky.jpg",
-	"Skybox_night\\sky.jpg",
-	"Skybox_night\\sky.jpg"
+	"Skybox_night\\sky2.png",
+	"Skybox_night\\sky2.png",
+	"Skybox_night\\sky2.png",
+	"Skybox_night\\sky2.png",
+	"Skybox_night\\sky2.png",
+	"Skybox_night\\sky2.png"
 	
 	/*"Skybox_night\\left.jpg",
 	"Skybox_night\\left.jpg",
