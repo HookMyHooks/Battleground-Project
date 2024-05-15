@@ -3,6 +3,7 @@ namespace fs = std::filesystem;
 
 
 #include "Model.h"
+#include "Tank.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
@@ -79,6 +80,27 @@ float blendFactor = 0;
 float ambientFactor = 0.9;
 float mixValue = 1.0f;
 
+
+void decomposeMatrix(const glm::mat4& matrix, glm::vec3& translation, glm::vec3& scale, glm::quat& rotation) {
+	// Extract the translation
+	translation = glm::vec3(matrix[3]);
+
+	// Extract the scale
+	scale.x = glm::length(glm::vec3(matrix[0]));
+	scale.y = glm::length(glm::vec3(matrix[1]));
+	scale.z = glm::length(glm::vec3(matrix[2]));
+
+	// Remove the scale from the matrix to extract the rotation
+	glm::mat4 rotationMatrix = matrix;
+
+	rotationMatrix[0] /= scale.x;
+	rotationMatrix[1] /= scale.y;
+	rotationMatrix[2] /= scale.z;
+
+	rotation = glm::quat_cast(rotationMatrix);
+}
+
+
 void drawMountain(Model modelMountain, Shader shaderProgram, Camera camera)
 {
 
@@ -139,6 +161,10 @@ void processInput(GLFWwindow* window)
 	if (mixValue < 0.5f)
 		mixValue = 0.5f;
 }
+
+
+double deltaTime = 0.0f;	// time between current frame and last frame
+double lastFrame = 0.0f;
 
 
 int main()
@@ -236,11 +262,13 @@ int main()
 	Model modelMountain(modelPath.c_str());
 
 
-	modelPath = "Models/tank/texturesTank.gltf";
-	Model modelTank(modelPath.c_str());
+
+
+
 
 	modelPath = "Models/old_building/scene.gltf";
 	Model modelHouse(modelPath.c_str());
+
 
 
 	// Variables to create periodic event for FPS displaying
@@ -333,23 +361,7 @@ int main()
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 
-	//night skybox
-	/*int width, height, nrChannels;
-	for (unsigned int i = 0; i < facesNight.size(); i++) {
-		unsigned char* data = stbi_load(facesNight[i].c_str(), &width, &height, &nrChannels, 0);
-		if (data) {
-			stbi_set_flip_vertically_on_load(false);
-			glTexImage2D(
-				GL_TEXTURE_CUBE_MAP_POSITIVE_X + i,
-				0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data
-			);
-			glGetError();
-			stbi_image_free(data);
-		}
-		else {
-			std::cout << "Cubemap texture failed to load at path: " << facesNight[i] << std::endl;
-		}
-	}*/
+
 
 	for (unsigned int i = 0; i < 6; i++)
 	{
@@ -380,20 +392,30 @@ int main()
 	}
 
 
-
-
+	Tank modelTank;
+	
 	//main while loop
 	while (!glfwWindowShouldClose(window))
 	{
+		//per-frame time logic 
+		double currentFrame = glfwGetTime();
+		deltaTime = currentFrame - lastFrame;
+		lastFrame = currentFrame;
+
 		processInput(window);
+		modelTank.ProcessInput(window,deltaTime);
+
+		modelTank.UpdateRotationRadians();
+
+		std::cout << modelTank.m_headRotation.x << " " << modelTank.m_headRotation.y << " " << modelTank.m_headRotation.z << " " << "\n";
 		shaderProgram.Activate();
 		glUniform4f(glGetUniformLocation(shaderProgram.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
 		glUniform3f(glGetUniformLocation(shaderProgram.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
 		glUniform1f(glGetUniformLocation(shaderProgram.ID, "mixValue"), mixValue);
 
 
-
-
+		//decomposeMatrix(modelTank.bodyTransformationMatrix, translation, scale, rotation);
+		
 
 		depthShader.Activate();
 		glUniformMatrix4fv(glGetUniformLocation(depthShader.ID, "lightSpaceMatrix"), 1, GL_FALSE, glm::value_ptr(lightSpaceMatrix));
@@ -468,7 +490,10 @@ int main()
 		modelHouse.Draw(shaderProgram, camera, glm::vec3(118.0f, 70.0f, -10.0f),
 			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
 
+		//Tank drawing
 
+		modelTank.DrawBody(shaderProgram, camera);
+		modelTank.DrawHead(shaderProgram, camera);
 
 		modelGround.Draw(shaderProgram, camera, glm::vec3(0.0f, -10.0f, 0.0f), glm::quat(glm::vec3(0.0f, 0.0f, 0.0f)), glm::vec3(1.0f, 1.0f, 1.0f));//colt dreapta
 		int numInstances = 10;
