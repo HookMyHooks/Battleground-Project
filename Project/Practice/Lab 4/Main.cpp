@@ -431,8 +431,34 @@ int main()
 
 		drawMountain(modelMountain, shaderProgram, camera);
 
-		modelHouse.Draw(shaderProgram, camera, glm::vec3(-1.0f, -10.0f, 1.0f),
+		modelHouse.Draw(shaderProgram, camera, glm::vec3(-1.0f, -60.0f, -10.0f),
 			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f,-1.0f,0.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
+		modelHouse.Draw(shaderProgram, camera, glm::vec3(-7.0f, -60.0f, -10.0f),
+			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(2.0f, 1.0f, 1.0f));
+		modelHouse.Draw(shaderProgram, camera, glm::vec3(-13.0f, -60.0f, -10.0f),
+			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
+		modelHouse.Draw(shaderProgram, camera, glm::vec3(-19.0f, -60.0f, -10.0f),
+			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
+
+		modelHouse.Draw(shaderProgram, camera, glm::vec3(-100.0f, -60.0f, -10.0f),
+			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
+		modelHouse.Draw(shaderProgram, camera, glm::vec3(-106.0f, -60.0f, -10.0f),
+			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(2.0f, 1.0f, 1.0f));
+		modelHouse.Draw(shaderProgram, camera, glm::vec3(-112.0f, -60.0f, -10.0f),
+			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
+		modelHouse.Draw(shaderProgram, camera, glm::vec3(-118.0f, -60.0f, -10.0f),
+			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
+
+
+		modelHouse.Draw(shaderProgram, camera, glm::vec3(100.0f, -60.0f, -10.0f),
+			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
+		modelHouse.Draw(shaderProgram, camera, glm::vec3(106.0f, -60.0f, -10.0f),
+			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(2.0f, 1.0f, 1.0f));
+		modelHouse.Draw(shaderProgram, camera, glm::vec3(112.0f, -60.0f, -10.0f),
+			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
+		modelHouse.Draw(shaderProgram, camera, glm::vec3(118.0f, -60.0f, -10.0f),
+			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
+
 
 
 
