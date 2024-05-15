@@ -70,29 +70,7 @@ std::vector<std::string>facesNight
 	"Skybox_night\\3.jpg",
 
 
-	
-	//"Skybox_night\\sky2.png",
-	//"Skybox_night\\sky2.png",
-	//"Skybox_night\\sky2.png",
-	//"Skybox_night\\sky2.png",
-	//"Skybox_night\\sky2.png"
-	
-	/*"Skybox_night\\left.jpg",
-	"Skybox_night\\left.jpg",
-	"Skybox_night\\left.jpg",
-	"Skybox_night\\left.jpg",
-	"Skybox_night\\left.jpg"*/
 
-
-
-
-
-
-
-	/*"Skybox_night\\top.jpg",
-	"Skybox_night\\bottom.jpg",
-	"Skybox_night\\back.jpg",
-	"Skybox_night\\front.jpg"*/
 	
 };
 
