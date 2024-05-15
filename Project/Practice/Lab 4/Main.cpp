@@ -449,7 +449,7 @@ int main()
 		modelAirplane.Draw(shaderProgram, camera, glm::vec3(-5.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.0f, 2.0f, 2.0f));
 		float angleRadians = glm::radians(90.0f);
 		glm::quat rotation = glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, -1.0f));
-		modelTank.Draw(shaderProgram, camera, glm::vec3(5.0f, -9.5f, 1.0f), rotation, glm::vec3(0.5f, 0.5f, 0.5f));
+		
 
 		drawMountain(modelMountain, shaderProgram, camera);
 
