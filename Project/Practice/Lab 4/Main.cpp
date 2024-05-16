@@ -131,6 +131,45 @@ void drawMountain(Model modelMountain, Shader shaderProgram, Camera camera)
 	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.3f, 17.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f,2.5f, 3.5f));//dreapta 
 }
 
+
+void drawnCactusModels(Model modelCactus, Model modelCactus2, Shader shaderProgram, Camera camera, float angleRadians)
+{
+	///////cactus 
+		// fata mijloc
+	modelCactus.Draw(shaderProgram, camera, glm::vec3(-18.0f, 60.0f, -10.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(5.0f, 4.0f, 4.0f));
+	modelCactus.Draw(shaderProgram, camera, glm::vec3(-46.0f, 68.0f, -10.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(6.0f, 3.0f, 3.0f));
+	modelCactus.Draw(shaderProgram, camera, glm::vec3(8.0f, 68.0f, -10.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(8.0f, 4.0f, 4.0f));
+
+
+	//fata stanga
+	modelCactus.Draw(shaderProgram, camera, glm::vec3(-118.0f, 60.0f, -10.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(10.0f, 8.0f, 7.0f));
+	modelCactus.Draw(shaderProgram, camera, glm::vec3(-146.0f, 68.0f, -10.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(6.0f, 3.0f, 3.0f));
+
+
+	//spate
+	modelCactus.Draw(shaderProgram, camera, glm::vec3(-160.0f, -155.0f, -10.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(9.0f, 10.0f, 10.0f));
+	modelCactus.Draw(shaderProgram, camera, glm::vec3(30.0f, -170.0f, -10.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(9.0f, 10.0f, 10.0f));
+	modelCactus.Draw(shaderProgram, camera, glm::vec3(120.0f, -150.0f, -10.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(9.0f, 10.0f, 10.0f));
+	modelCactus.Draw(shaderProgram, camera, glm::vec3(190.0f, -40.0f, -10.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(10.0f, 10.0f, 10.0f));
+
+
+	//////cactus 2
+	modelCactus2.Draw(shaderProgram, camera, glm::vec3(20.0f, 12.0f, -1.7f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(0.2f, 0.2f, 0.2f));
+	modelCactus2.Draw(shaderProgram, camera, glm::vec3(15.0f, 12.0f, -1.7f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(0.3f, 0.3f, 0.3f));
+
+}
+
 void processInput(GLFWwindow* window)
 {
 	if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
@@ -252,9 +291,6 @@ int main()
 
 	modelPath = "Models/cactus2/scene.gltf";
 	Model modelCactus2(modelPath.c_str());
-
-
-
 
 
 	modelPath = "Models/old_building/scene.gltf";
@@ -488,43 +524,7 @@ int main()
 
 
 
-
-		///////cactus 
-		// fata mijloc
-		modelCactus.Draw(shaderProgram, camera, glm::vec3(-18.0f, 60.0f, -10.0f),
-			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(5.0f, 4.0f, 4.0f));
-		modelCactus.Draw(shaderProgram, camera, glm::vec3(-46.0f, 68.0f, -10.0f),
-			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(6.0f, 3.0f, 3.0f));
-		modelCactus.Draw(shaderProgram, camera, glm::vec3(8.0f, 68.0f, -10.0f),
-			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(8.0f, 4.0f, 4.0f));
-
-
-		//fata stanga
-		modelCactus.Draw(shaderProgram, camera, glm::vec3(-118.0f, 60.0f, -10.0f),
-			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(10.0f, 8.0f, 7.0f));
-		modelCactus.Draw(shaderProgram, camera, glm::vec3(-146.0f, 68.0f, -10.0f),
-			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(6.0f, 3.0f, 3.0f));
-
-
-		//spate
-		modelCactus.Draw(shaderProgram, camera, glm::vec3(-160.0f, -155.0f, -10.0f),
-			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(9.0f, 10.0f, 10.0f));
-		modelCactus.Draw(shaderProgram, camera, glm::vec3(30.0f, -170.0f, -10.0f),
-			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(9.0f, 10.0f, 10.0f));
-		modelCactus.Draw(shaderProgram, camera, glm::vec3(120.0f, -150.0f, -10.0f),
-			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(9.0f, 10.0f, 10.0f));
-		modelCactus.Draw(shaderProgram, camera, glm::vec3(190.0f, -40.0f, -10.0f),
-			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(10.0f, 10.0f, 10.0f));
-
-
-
-
-		//////cactus 2
-
-		modelCactus2.Draw(shaderProgram, camera, glm::vec3(20.0f, 12.0f, -1.7f),
-			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(0.2f, 0.2f, 0.2f));
-		modelCactus2.Draw(shaderProgram, camera, glm::vec3(15.0f, 12.0f, -1.7f),
-			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(0.3f, 0.3f, 0.3f));
+		drawnCactusModels(modelCactus, modelCactus2, shaderProgram, camera, angleRadians);
 
 		//Tank drawing
 
