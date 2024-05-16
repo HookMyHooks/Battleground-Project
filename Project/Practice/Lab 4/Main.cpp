@@ -530,9 +530,10 @@ int main()
 		camera.updateMatrix(45.0f, 0.1f, 5000.0f);
 
 		modelHelicopter.Draw(shaderProgram, camera, glm::vec3(-1.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(10.0f, 10.0f, 10.0f));
-		modelAirplane.Draw(shaderProgram, camera, glm::vec3(-5.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.0f, 2.0f, 2.0f));
+		//modelAirplane.Draw(shaderProgram, camera, glm::vec3(-5.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.0f, 2.0f, 2.0f));
 		float angleRadians = glm::radians(90.0f);
 		glm::quat rotation = glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, -1.0f));
+
 		
 
 		drawMountain(modelMountain, shaderProgram, camera);

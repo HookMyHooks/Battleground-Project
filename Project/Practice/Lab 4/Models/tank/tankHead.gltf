@@ -96,19 +96,13 @@
 				14
 			],
 			"mesh":15,
-			"name":"Cube.005_Cube.004",
-			"rotation":[
-				0.7071066498756409,
-				0,
-				0,
-				0.70710688829422
-			]
+			"name":"Cube.005_Cube.004"
 		}
 	],
 	"materials":[
 		{
 			"doubleSided":true,
-			"name":"Material.000",
+			"name":"Material.005",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":0
@@ -119,7 +113,7 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"Material.008",
+			"name":"Material.014",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
 					0.6399999856948853,
@@ -133,7 +127,7 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"Material.015",
+			"name":"Material.016",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
 					0.6399999856948853,
@@ -147,7 +141,7 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"Material.006",
+			"name":"Material.017",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
 					0.6399999856948853,
@@ -162,7 +156,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Cube.000_Cube.048",
+			"name":"Cube.000_Cube.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -176,7 +170,7 @@
 			]
 		},
 		{
-			"name":"Cube.006_Cube.032",
+			"name":"Cube.006_Cube.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -190,7 +184,7 @@
 			]
 		},
 		{
-			"name":"Cube.007_Cube.033",
+			"name":"Cube.007_Cube.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -204,7 +198,7 @@
 			]
 		},
 		{
-			"name":"Cube.009_Cube.046",
+			"name":"Cube.009_Cube.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -218,7 +212,7 @@
 			]
 		},
 		{
-			"name":"Cube.010_Cube.047",
+			"name":"Cube.010_Cube.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -232,7 +226,7 @@
 			]
 		},
 		{
-			"name":"Cube.008_Cube.045",
+			"name":"Cube.008_Cube.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -255,7 +249,7 @@
 			]
 		},
 		{
-			"name":"Cube.014_Cube.097",
+			"name":"Cube.014_Cube.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -269,7 +263,7 @@
 			]
 		},
 		{
-			"name":"Cube.051_Cube.065",
+			"name":"Cube.051_Cube.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -283,7 +277,7 @@
 			]
 		},
 		{
-			"name":"Cube.070_Cube.071",
+			"name":"Cube.070_Cube.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -297,7 +291,7 @@
 			]
 		},
 		{
-			"name":"Cube.086_Cube.087",
+			"name":"Cube.086_Cube.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -311,7 +305,7 @@
 			]
 		},
 		{
-			"name":"Cylinder",
+			"name":"Cylinder.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -325,7 +319,7 @@
 			]
 		},
 		{
-			"name":"Cube.003",
+			"name":"Cube.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -348,7 +342,7 @@
 			]
 		},
 		{
-			"name":"Cylinder.001_Cylinder.005",
+			"name":"Cylinder.001_Cylinder.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -371,7 +365,7 @@
 			]
 		},
 		{
-			"name":"Cylinder.003_Cylinder.006",
+			"name":"Cylinder.003_Cylinder.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -385,7 +379,7 @@
 			]
 		},
 		{
-			"name":"Cylinder.004_Cylinder.007",
+			"name":"Cylinder.004_Cylinder.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -408,7 +402,7 @@
 			]
 		},
 		{
-			"name":"Cube.005_Cube.004",
+			"name":"Cube.005_Cube.001",
 			"primitives":[
 				{
 					"attributes":{
