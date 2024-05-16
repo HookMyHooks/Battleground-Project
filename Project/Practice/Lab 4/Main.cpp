@@ -218,13 +218,13 @@ void drawnHeliport(Model modelHeliport, Camera camera, Shader shaderProgram, flo
 {
 
 	modelHeliport.Draw(shaderProgram, camera, glm::vec3(10.0f, -5.0f, -2.0f),
-		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
 	modelHeliport.Draw(shaderProgram, camera, glm::vec3(10.0f, 5.0f, -2.0f),
-		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
 	modelHeliport.Draw(shaderProgram, camera, glm::vec3(-13.0f, -5.0f, -2.0f),
-		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
 	modelHeliport.Draw(shaderProgram, camera, glm::vec3(-13.0f, 5.0f, -2.0f),
-		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
 
 }
 
@@ -351,7 +351,7 @@ int main()
 	Model modelCactus2(modelPath.c_str());
 
 
-	modelPath = "Models/heliport/scene.gltf";
+	modelPath = "Models/heliport/heliport.gltf";
 	Model modelHeliport(modelPath.c_str());
 
 	modelPath = "Models/old_building/scene.gltf";
