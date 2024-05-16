@@ -357,6 +357,10 @@ int main()
 	modelPath = "Models/old_building/scene.gltf";
 	Model modelHouse(modelPath.c_str());
 
+	modelPath = "Models/stone/scene.gltf";
+	Model modelStone(modelPath.c_str());
+
+
 
 
 	// Variables to create periodic event for FPS displaying
@@ -536,6 +540,14 @@ int main()
 		drawnHeliport(modelHeliport, camera, shaderProgram, angleRadians);
 		drawnCactusModels(modelCactus, modelCactus2, shaderProgram, camera, angleRadians);
 
+		modelStone.Draw(shaderProgram, camera, glm::vec3(84.0f, -75.0f, 7.0f),
+			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(3.0f, 3.0f, 3.0f));
+		modelStone.Draw(shaderProgram, camera, glm::vec3(78.0f, -75.0f, 7.0f),
+			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(5.0f, 3.0f, 3.0f));
+		modelStone.Draw(shaderProgram, camera, glm::vec3(-88.0f, -75.0f, 7.0f),
+			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(5.0f, 3.0f, 3.0f));
+		modelStone.Draw(shaderProgram, camera, glm::vec3(-82.0f, -75.0f, 7.0f),
+			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(4.0f, 3.0f, 3.0f));
 		//Tank drawing
 
 		modelTank.DrawBody(shaderProgram, camera);
