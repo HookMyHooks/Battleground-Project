@@ -62,17 +62,12 @@ std::vector<std::string> facesDay
 
 std::vector<std::string>facesNight
 {
-
-	"Skybox_night\\3.jpg",
-	"Skybox_night\\3.jpg",
-	"Skybox_night\\3.jpg",
-	"Skybox_night\\3.jpg",
-	"Skybox_night\\3.jpg",
-	"Skybox_night\\3.jpg",
-
-
-
-	
+	"Skybox_night\\11.jpg",
+	"Skybox_night\\1.jpg",
+	"Skybox_night\\1.jpg",
+	"Skybox_night\\1.jpg",
+	"Skybox_night\\1.jpg",
+	"Skybox_night\\1.jpg"
 };
 
 
@@ -107,8 +102,8 @@ void drawMountain(Model modelMountain, Shader shaderProgram, Camera camera)
 	modelMountain.Draw(shaderProgram, camera, glm::vec3(-17.0f, 0.3f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(4.5f, 3.5f, 3.5f));//spate 
 	modelMountain.Draw(shaderProgram, camera, glm::vec3(-15.0f, 0.3f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 2.5f, 3.5f));//spate 
 	modelMountain.Draw(shaderProgram, camera, glm::vec3(-11.0f, 0.3f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.5f, 2.5f, 2.5f));//spate 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(-8.0f, 0.3f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.5f, 2.5f,2.5f));//spate
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(-6.0f, 0.3f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.5f, 2.5f,2.5f));//spate
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(-8.0f, 0.3f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.5f, 2.5f, 2.5f));//spate
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(-6.0f, 0.3f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.5f, 2.5f, 2.5f));//spate
 	modelMountain.Draw(shaderProgram, camera, glm::vec3(-2.0f, 0.3f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 3.5f, 3.5f));//spate 
 
 	modelMountain.Draw(shaderProgram, camera, glm::vec3(-16.0f, 0.3f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(6.5f, 4.5f, 5.5f));//fata stanga
@@ -121,14 +116,14 @@ void drawMountain(Model modelMountain, Shader shaderProgram, Camera camera)
 	modelMountain.Draw(shaderProgram, camera, glm::vec3(9.0, 0.3f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 4.5f, 3.5f));//fata 
 	modelMountain.Draw(shaderProgram, camera, glm::vec3(12.0, 0.3f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 3.5f, 2.5f));//fata 
 	modelMountain.Draw(shaderProgram, camera, glm::vec3(15.0, 0.3f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(4.5f, 3.5f, 4.5f));//fata 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(17.0, 0.3f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(6.5f, 4.5f,5.5f));//fata 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(17.0, 0.3f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(6.5f, 4.5f, 5.5f));//fata 
 
 	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.3f, 6.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.1f, 3.5f, 2.5f));//dreapta 
 	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.3f, 8.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.1f, 2.5f, 2.5f));//dreapta 
 	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.3f, 10.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.8f, 3.5f, 3.5f));//dreapta 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.3f, 13.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f,2.5f, 3.5f));//dreapta 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.3f, 13.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 2.5f, 3.5f));//dreapta 
 	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.3f, 15.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 3.0f, 2.5f));//dreapta 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.3f, 17.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f,2.5f, 3.5f));//dreapta 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.3f, 17.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 2.5f, 3.5f));//dreapta 
 }
 
 
@@ -500,7 +495,7 @@ int main()
 		lastFrame = currentFrame;
 
 		processInput(window);
-		modelTank.ProcessInput(window,deltaTime);
+		modelTank.ProcessInput(window, deltaTime);
 
 		modelTank.UpdateRotationRadians();
 
@@ -512,7 +507,7 @@ int main()
 
 
 		//decomposeMatrix(modelTank.bodyTransformationMatrix, translation, scale, rotation);
-		
+
 
 		depthShader.Activate();
 		glUniformMatrix4fv(glGetUniformLocation(depthShader.ID, "lightSpaceMatrix"), 1, GL_FALSE, glm::value_ptr(lightSpaceMatrix));
@@ -539,7 +534,7 @@ int main()
 		float angleRadians = glm::radians(90.0f);
 		glm::quat rotation = glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, -1.0f));
 
-		
+
 
 		drawMountain(modelMountain, shaderProgram, camera);
 		drawnHouse(modelHouse, camera, shaderProgram, angleRadians);
@@ -579,7 +574,7 @@ int main()
 		glDepthFunc(GL_LEQUAL);
 
 
-		
+
 		skyboxShader.Activate();
 		glUniform1f(glGetUniformLocation(skyboxShader.ID, "blendFactor"), blendFactor);
 
