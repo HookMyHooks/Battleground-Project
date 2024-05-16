@@ -24,6 +24,7 @@ private:
 public:
 
 	Tank();
+	Tank(const Tank& t1);
 
 	void ProcessInput(GLFWwindow* window, double deltaTime);
 

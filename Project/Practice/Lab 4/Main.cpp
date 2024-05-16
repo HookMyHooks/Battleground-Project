@@ -485,7 +485,12 @@ int main()
 
 
 	Tank modelTank;
-	
+	Tank t1(modelTank), t2(modelTank);
+
+	t1.m_position = glm::vec3(8.0f, -9.5f, 5.0f);
+	t1.m_headPosition = glm::vec3(8.17f, -9.5f, 5.0f);
+	t2.m_position = glm::vec3(3.0f, -9.5f, -5.0f);
+	t2.m_headPosition = glm::vec3(3.17f, -9.5f, -5.0f);
 	//main while loop
 	while (!glfwWindowShouldClose(window))
 	{
@@ -553,6 +558,12 @@ int main()
 
 		modelTank.DrawBody(shaderProgram, camera);
 		modelTank.DrawHead(shaderProgram, camera);
+
+		t1.DrawBody(shaderProgram, camera);
+		t1.DrawHead(shaderProgram, camera);
+
+		t2.DrawBody(shaderProgram, camera);
+		t2.DrawHead(shaderProgram, camera);
 
 		modelGround.Draw(shaderProgram, camera, glm::vec3(0.0f, -10.0f, 0.0f), glm::quat(glm::vec3(0.0f, 0.0f, 0.0f)), glm::vec3(1.0f, 1.0f, 1.0f));//colt dreapta
 		int numInstances = 10;

@@ -24,6 +24,20 @@ Tank::Tank()
 	m_headPosition = glm::vec3(5.17f, -9.5f, 1.0f);
 }
 
+Tank::Tank(const Tank& t1)
+{
+	this->m_body = t1.m_body;
+	this->m_head = t1.m_head;
+	this->m_headPosition = t1.m_headPosition;
+	this->m_headRotation = t1.m_headRotation;
+	this->m_position = t1.m_position;
+	this->m_rotation = t1.m_rotation;
+	this->m_scale = t1.m_scale;
+	this->m_tankRotation = t1.m_tankRotation;
+	this->m_tankRotationRadians = t1.m_tankRotationRadians;
+	this->m_tankSpeed = t1.m_tankSpeed;
+}
+
 
 void Tank::ProcessInput(GLFWwindow* window, double deltaTime)
 {
@@ -41,13 +55,13 @@ void Tank::ProcessInput(GLFWwindow* window, double deltaTime)
 	{
 		if (90.0f * deltaTime < 156.0f)
 		{
-			m_tankRotation += 90.0f * deltaTime;
+			m_tankRotation -= 90.0f * deltaTime;
 		}
 		//std::cout << tankRotation << "\n";
 	}
 	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
 	{
-		m_tankRotation -= 90.0f * deltaTime;
+		m_tankRotation += 90.0f * deltaTime;
 		//std::cout << tankRotation << "\n";
 	}
 	RotationAngleCorrection();
