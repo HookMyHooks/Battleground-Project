@@ -103,46 +103,32 @@ void decomposeMatrix(const glm::mat4& matrix, glm::vec3& translation, glm::vec3&
 
 void drawMountain(Model modelMountain, Shader shaderProgram, Camera camera)
 {
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(0.0f, 0.3f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.5f, 2.5f, 2.5f));//spate mijloc
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(-17.0f, 0.3f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(4.5f, 3.5f, 3.5f));//spate 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(-15.0f, 0.3f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 2.5f, 3.5f));//spate 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(-11.0f, 0.3f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.5f, 2.5f, 2.5f));//spate 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(-8.0f, 0.3f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.5f, 2.5f,2.5f));//spate
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(-6.0f, 0.3f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.5f, 2.5f,2.5f));//spate
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(-2.0f, 0.3f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 3.5f, 3.5f));//spate 
 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(-16.0f, 0.3f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(6.5f, 4.5f, 5.5f));//fata stanga
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(-10.0, 0.3f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 3.5f, 3.5f));//fata 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(-7.0, 0.3f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 2.5f, 2.5f));//fata 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(-2.0, 0.3f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 2.5f, 3.5f));//fata 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(-1.0, 0.3f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 2.5f, 3.5f));//fata 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(2.0, 0.3f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(4.5f, 3.5f, 4.5f));//fata 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(5.0, 0.3f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(4.5f, 3.5f, 3.5f));//fata 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(9.0, 0.3f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 4.5f, 3.5f));//fata 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(12.0, 0.3f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 3.5f, 2.5f));//fata 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(15.0, 0.3f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(4.5f, 3.5f, 4.5f));//fata 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(17.0, 0.3f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(6.5f, 4.5f,5.5f));//fata 
 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(0.0f, 0.1f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.5f, 2.5f, 2.5f));//spate mijloc
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(-20.0f, 0.1f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(6.5f, 6.5f, 6.5f));//spate 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(-15.0f, 0.1f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(4.5f, 3.5f, 6.5f));//spate 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(-11.0f, 0.1f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(5.5f, 6.5f, 5.5f));//spate 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(-2.0f, 0.1f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(5.5f, 4.5f, 3.5f));//spate 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(-6.0f, 0.1f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(6.5f, 4.5f, 5.5f));//spate
-
-
-
-
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(-20.0f, 0.1f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(15.5f, 14.5f, 13.5f));//fata stanga
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(-15.0, 0.1f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(7.5f, 6.5f, 8.5f));//fata 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(-10.0, 0.1f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(4.5f, 3.5f, 2.5f));//fata 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(-7.0, 0.1f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(6.5f, 5.5f, 5.5f));//fata 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(-2.0, 0.1f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 5.5f, 4.5f));//fata 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(-1.0, 0.1f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 2.5f, 3.5f));//fata 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(2.0, 0.1f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(7.5f, 6.5f, 8.5f));//fata 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(5.0, 0.1f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(4.5f, 3.5f, 2.5f));//fata 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(9.0, 0.1f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(6.5f, 4.5f, 5.5f));//fata 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(12.0, 0.1f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 5.5f, 2.5f));//fata 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(15.0, 0.1f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(4.5f, 3.5f, 4.5f));//fata 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(18.0, 0.1f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.5f, 2.5f, 3.5f));//fata 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0, 0.1f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.5f, 3.5f,4.5f));//fata 
-
-
-
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.1f, -20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(10.5f, 8.5f, 9.5f));//DREAPTA COLT sus
-	//modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.1f, 0.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(4.5f, 5.5f, 4.5f));//dreapta mijloc 
-	//modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.1f, 3.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(4.7f, 4.0f, 3.7f));//dreapta 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.1f, 6.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.1f, 3.5f, 2.5f));//dreapta 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.1f, 8.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.1f, 2.5f, 2.5f));//dreapta 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.1f, 10.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(4.8f, 4.5f, 3.5f));//dreapta 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.1f, 13.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(6.5f,2.5f, 3.5f));//dreapta 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.1f, 15.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(4.0f, 3.00f, 4.5f));//dreapta 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.1f, 16.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(6.5f,2.5f, 3.5f));//dreapta 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.1f, 18.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(6.5f,2.5f, 3.5f));//dreapta 
-	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.1f, 20.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(6.5f, 6.5f, 6.5f));//dreapta colt jos
-
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.3f, 6.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.1f, 3.5f, 2.5f));//dreapta 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.3f, 8.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.1f, 2.5f, 2.5f));//dreapta 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.3f, 10.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.8f, 3.5f, 3.5f));//dreapta 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.3f, 13.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f,2.5f, 3.5f));//dreapta 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.3f, 15.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f, 3.0f, 2.5f));//dreapta 
+	modelMountain.Draw(shaderProgram, camera, glm::vec3(20.0f, 0.3f, 17.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(3.5f,2.5f, 3.5f));//dreapta 
 }
 
 void processInput(GLFWwindow* window)
@@ -264,6 +250,8 @@ int main()
 	modelPath = "Models/cactus/scene.gltf";
 	Model modelCactus(modelPath.c_str());
 
+	modelPath = "Models/cactus2/scene.gltf";
+	Model modelCactus2(modelPath.c_str());
 
 
 
@@ -487,6 +475,7 @@ int main()
 		modelHouse.Draw(shaderProgram, camera, glm::vec3(118.0f, 60.0f, -10.0f),
 			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(1.0f, 1.0f, 1.0f));*/
 
+
 		//dreapta
 		modelHouse.Draw(shaderProgram, camera, glm::vec3(100.0f, 70.0f, -10.0f),
 			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
@@ -498,7 +487,10 @@ int main()
 			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
 
 
-		//mijloc
+
+
+		///////cactus 
+		// fata mijloc
 		modelCactus.Draw(shaderProgram, camera, glm::vec3(-18.0f, 60.0f, -10.0f),
 			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(5.0f, 4.0f, 4.0f));
 		modelCactus.Draw(shaderProgram, camera, glm::vec3(-46.0f, 68.0f, -10.0f),
@@ -507,7 +499,7 @@ int main()
 			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(8.0f, 4.0f, 4.0f));
 
 
-		//stanga
+		//fata stanga
 		modelCactus.Draw(shaderProgram, camera, glm::vec3(-118.0f, 60.0f, -10.0f),
 			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(10.0f, 8.0f, 7.0f));
 		modelCactus.Draw(shaderProgram, camera, glm::vec3(-146.0f, 68.0f, -10.0f),
@@ -524,6 +516,15 @@ int main()
 		modelCactus.Draw(shaderProgram, camera, glm::vec3(190.0f, -40.0f, -10.0f),
 			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(10.0f, 10.0f, 10.0f));
 
+
+
+
+		//////cactus 2
+
+		modelCactus2.Draw(shaderProgram, camera, glm::vec3(20.0f, 12.0f, -1.7f),
+			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(0.2f, 0.2f, 0.2f));
+		modelCactus2.Draw(shaderProgram, camera, glm::vec3(15.0f, 12.0f, -1.7f),
+			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(0.3f, 0.3f, 0.3f));
 
 		//Tank drawing
 
