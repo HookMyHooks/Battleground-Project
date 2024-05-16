@@ -1,0 +1,11 @@
+Model Information:
+* title:	Helicopter Land / Helipad / Heliport
+* source:	https://sketchfab.com/3d-models/helicopter-land-helipad-heliport-a5e243b943dc46a6b841a9460d7d5880
+* author:	muhammad.rihca (https://sketchfab.com/muhammad.rihca)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Helicopter Land / Helipad / Heliport" (https://sketchfab.com/3d-models/helicopter-land-helipad-heliport-a5e243b943dc46a6b841a9460d7d5880) by muhammad.rihca (https://sketchfab.com/muhammad.rihca) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
