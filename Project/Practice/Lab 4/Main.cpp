@@ -29,6 +29,8 @@ float skyboxVertices[] =
 	-1.0f,  1.0f, -1.0f
 };
 
+
+
 unsigned int skyboxIndices[] =
 {
 	// Right
@@ -50,6 +52,8 @@ unsigned int skyboxIndices[] =
 	3, 7, 6,
 	6, 2, 3
 };
+
+
 std::vector<std::string> facesDay
 {
 	"Skybox\\right.jpg",
@@ -328,10 +332,10 @@ int main()
 	std::filesystem::path currentDir = std::filesystem::current_path();
 
 	std::string modelPath = "Models/helicopter/scene.gltf";
-	Model modelHelicopter(modelPath.c_str());
+	//Model modelHelicopter(modelPath.c_str());
 
 	modelPath = "Models/airplane/scene.gltf";
-	Model modelAirplane(modelPath.c_str());
+	//Model modelAirplane(modelPath.c_str());
 
 	modelPath = "Models/grass/scene.gltf";
 	Model modelGround(modelPath.c_str());
@@ -499,7 +503,7 @@ int main()
 
 		modelTank.UpdateRotationRadians();
 
-		std::cout << modelTank.m_headRotation.x << " " << modelTank.m_headRotation.y << " " << modelTank.m_headRotation.z << " " << "\n";
+		//std::cout << modelTank.m_headRotation.x << " " << modelTank.m_headRotation.y << " " << modelTank.m_headRotation.z << " " << "\n";
 		shaderProgram.Activate();
 		glUniform4f(glGetUniformLocation(shaderProgram.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
 		glUniform3f(glGetUniformLocation(shaderProgram.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
@@ -529,8 +533,8 @@ int main()
 		camera.Inputs(window);
 		camera.updateMatrix(45.0f, 0.1f, 5000.0f);
 
-		modelHelicopter.Draw(shaderProgram, camera, glm::vec3(-1.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(10.0f, 10.0f, 10.0f));
-		//modelAirplane.Draw(shaderProgram, camera, glm::vec3(-5.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(2.0f, 2.0f, 2.0f));
+		//modelHelicopter.Draw(shaderProgram, camera, glm::vec3(-1.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(1.0f,1.0f,1.0f));
+		
 		float angleRadians = glm::radians(90.0f);
 		glm::quat rotation = glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, -1.0f));
 
@@ -554,11 +558,11 @@ int main()
 		modelTank.DrawBody(shaderProgram, camera);
 		modelTank.DrawHead(shaderProgram, camera);
 
-		t1.DrawBody(shaderProgram, camera);
+		/*t1.DrawBody(shaderProgram, camera);
 		t1.DrawHead(shaderProgram, camera);
 
 		t2.DrawBody(shaderProgram, camera);
-		t2.DrawHead(shaderProgram, camera);
+		t2.DrawHead(shaderProgram, camera);*/
 
 		modelGround.Draw(shaderProgram, camera, glm::vec3(0.0f, -10.0f, 0.0f), glm::quat(glm::vec3(0.0f, 0.0f, 0.0f)), glm::vec3(1.0f, 1.0f, 1.0f));//colt dreapta
 		int numInstances = 10;

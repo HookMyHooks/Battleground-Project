@@ -41,17 +41,17 @@ Tank::Tank(const Tank& t1)
 
 void Tank::ProcessInput(GLFWwindow* window, double deltaTime)
 {
-	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 	{
 		m_position.x += m_tankSpeed * deltaTime;
 		m_headPosition.x += m_tankSpeed * deltaTime;
 	}
-	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
 	{
 		m_position.x -= m_tankSpeed * deltaTime;
 		m_headPosition.x -= m_tankSpeed * deltaTime;
 	}
-	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
 	{
 		if (90.0f * deltaTime < 156.0f)
 		{
@@ -59,10 +59,23 @@ void Tank::ProcessInput(GLFWwindow* window, double deltaTime)
 		}
 		//std::cout << tankRotation << "\n";
 	}
-	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
 	{
 		m_tankRotation += 90.0f * deltaTime;
 		//std::cout << tankRotation << "\n";
+	}
+
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+	{
+		m_bodyRotation -= 45.0f * deltaTime;
+		m_tankRotation -= 45.0f * deltaTime;
+
+	}
+	
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+	{
+		m_bodyRotation += 45.0f * deltaTime;
+		m_tankRotation += 45.0f * deltaTime;
 	}
 	RotationAngleCorrection();
 }
@@ -71,17 +84,20 @@ void Tank::ProcessInput(GLFWwindow* window, double deltaTime)
 void Tank::UpdateRotationRadians()
 {
 	m_tankRotationRadians = m_tankRotation * (M_PI / 180.0f);
-	//m_headRotation = glm::angleAxis(m_tankRotationRadians, glm::vec3(1.0f, 0.0f, 0.0f));
+	m_bodyRotationRadians = m_bodyRotation * (M_PI / 180.0f);
 
 	 // Decompose the current headRotation quaternion to Euler angles
 	glm::vec3 euler = glm::eulerAngles(m_headRotation);
+	glm::vec3 eulerBody = glm::eulerAngles(m_rotation);
 
 	// Update only the x-axis rotation (pitch)
 	euler.x = m_tankRotationRadians;
+	eulerBody.x = m_bodyRotationRadians;
 	
 
 	// Recompose the quaternion with the updated x-axis rotation
 	m_headRotation = glm::quat(euler);
+	m_rotation = glm::quat(eulerBody);
 
 }
 
@@ -92,6 +108,8 @@ void Tank::RotationAngleCorrection()
 		m_tankRotation = 156.0f;
 	if (m_tankRotation < -158.0f)
 		m_tankRotation = -158.0f;
+
+	
 }
 
 void Tank::DrawAll(Shader shader, Camera camera)
@@ -106,7 +124,22 @@ void Tank::DrawAll(Shader shader, Camera camera)
 void Tank::DrawBody(Shader shader, Camera camera)
 {
 
-	m_body.Draw(shader, camera, this->m_position, this->m_rotation, this->m_scale);
+	glm::vec3 m_centerOfRotation = glm::vec3(0.067f,0.0f,0.0f); // Center of rotation for the body
+
+	glm::vec3 translation = m_position - m_centerOfRotation;
+
+	// Apply rotation around the center of rotation
+	//glm::vec3 rotatedTranslation = m_rotation * translation;
+
+	// Calculate the final position
+	//glm::vec3 finalPosition = m_centerOfRotation + rotatedTranslation;
+
+	// Draw the body model with the final position and rotation
+	m_body.Draw(shader, camera, translation, m_rotation, m_scale);
+
+
+
+	//m_body.Draw(shader, camera, this->m_position, this->m_rotation, this->m_scale);
 
 
 }

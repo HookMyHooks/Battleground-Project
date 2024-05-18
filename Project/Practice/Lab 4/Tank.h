@@ -37,7 +37,11 @@ public:
 	glm::vec3 m_scale;
 	glm::quat m_rotation;
 	glm::quat m_headRotation;
+	glm::quat m_tankBodyRotation;
 	glm::vec3 m_headPosition;
+
+
+	
 
 
 
@@ -45,6 +49,8 @@ public:
 	float m_tankSpeed = 2.5f; // Speed of the tank
 	float m_tankRotation = 0.0f; //-158, 156 
 	float m_tankRotationRadians; // = tankRotation * (M_PI / 180.0f);
+	float m_bodyRotation = 0.0f;
+	float m_bodyRotationRadians;
 
 
 	void DrawAll(Shader shader, Camera camera);
