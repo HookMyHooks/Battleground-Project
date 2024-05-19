@@ -217,14 +217,14 @@ void drawnHouse(Model modelHouse, Camera camera, Shader shaderProgram, float ang
 void drawnHeliport(Model modelHeliport, Camera camera, Shader shaderProgram, float angleRadians)
 {
 
-	modelHeliport.Draw(shaderProgram, camera, glm::vec3(60.0f, -9.3f, -10.0f),
-		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(2.0f, 2.0f, 2.0f));
-	modelHeliport.Draw(shaderProgram, camera, glm::vec3(60.0f, -9.3f, 10.0f),
-		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(2.0f, 2.0f, 2.0f));
-	modelHeliport.Draw(shaderProgram, camera, glm::vec3(-60.0f, -9.3f, -10.0f),
-		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(2.0f, 2.0f, 2.0f));
-	modelHeliport.Draw(shaderProgram, camera, glm::vec3(-60.0f, -9.3f, 10.0f),
-		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(2.0f, 2.0f, 2.0f));
+	modelHeliport.Draw(shaderProgram, camera, glm::vec3(60.0f, -8.4f, -10.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(5.0f, 5.0f,5.0f));
+	modelHeliport.Draw(shaderProgram, camera, glm::vec3(60.0f, -8.4f, 10.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(5.0f,5.0f,5.0f));
+	modelHeliport.Draw(shaderProgram, camera, glm::vec3(-60.0f, -8.4f, -10.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(5.0f, 5.0f, 5.0f));
+	modelHeliport.Draw(shaderProgram, camera, glm::vec3(-60.0f, -8.4f, 10.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(5.0f, 5.0f, 5.0f));
 
 }
 
