@@ -634,8 +634,11 @@ int main()
 		t2.m_position += (t2.tankSpeedFactor * t2.forward * (float)deltaTime);
 
 		
-		if (t2.m_position.z == -45.0f)
-			t2.tankSpeedFactor = 0.0f;
+		if (t2.m_position.z <= -45.0f)
+		{
+			t2.m_position.z = -45.0f;
+			t1.m_position.z = -45.0f;
+		}
 		t1.DrawBody(shaderProgram, camera);
 		t2.DrawBody(shaderProgram, camera);
 		
