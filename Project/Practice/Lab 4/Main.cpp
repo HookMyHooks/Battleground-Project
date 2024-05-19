@@ -230,18 +230,18 @@ void drawnHeliport(Model modelHeliport, Camera camera, Shader shaderProgram, flo
 
 void drawnHelicopter(Model helicopter, Camera camera, Shader shaderProgram, float angleRadians)
 {
-	helicopter.Draw(shaderProgram, camera, glm::vec3(-30.0f, -9.8f, 10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
-	helicopter.Draw(shaderProgram, camera, glm::vec3(-30.0f, -9.8f, -10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
-	helicopter.Draw(shaderProgram, camera, glm::vec3(30.0f, -9.8f, 10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
-	helicopter.Draw(shaderProgram, camera, glm::vec3(30.0f, -9.8f, -10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(-30.0f, -9.8f, 10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(-30.0f, -9.8f, -10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(30.0f, -9.8f, 10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(30.0f, -9.8f, -10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
 
-	helicopter.Draw(shaderProgram, camera, glm::vec3(26.0f, -2.0f, -13.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
-	helicopter.Draw(shaderProgram, camera, glm::vec3(30.0f, -2.0f, 0.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
-	helicopter.Draw(shaderProgram, camera, glm::vec3(26.0f, -2.0f, 13.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(26.0f, -2.0f, -13.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(30.0f, -2.0f, 0.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(26.0f, -2.0f, 13.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
 
-	helicopter.Draw(shaderProgram, camera, glm::vec3(-26.0f, -2.0f, -13.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
-	helicopter.Draw(shaderProgram, camera, glm::vec3(-30.0f, -2.0f, 0.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
-	helicopter.Draw(shaderProgram, camera, glm::vec3(-26.0f, -2.0f, 13.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(-26.0f, -2.0f, -13.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(-30.0f, -2.0f, 0.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(-26.0f, -2.0f, 13.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
 }
 
 
