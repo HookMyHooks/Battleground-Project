@@ -30,7 +30,7 @@ Tank::Tank()
 void Tank::Set(const glm::vec3& position)
 {
 	this->m_position = position;
-	this->yaw = -90.0f; // Facing forward initially
+	this->yaw = 90.0f; // Facing forward initially
 	this->pitch = 0.0f;
 
 	this->worldUp = glm::vec3(0, 1, 0);
@@ -47,6 +47,12 @@ Tank::Tank(const Tank& t1)
 	this->m_position = t1.m_position;
 	this->m_rotation = t1.m_rotation;
 	this->m_scale = t1.m_scale;
+	this->yaw = t1.yaw;
+	this->pitch = t1.pitch;
+	this->worldUp = t1.worldUp;
+	this->forward = t1.forward;
+	this->right = t1.right;
+	this->up = t1.up;
 	
 }
 

@@ -13,8 +13,8 @@ namespace fs = std::filesystem;
 #pragma comment (lib, "glew32.lib")
 #pragma comment (lib, "OpenGL32.lib")
 
-const unsigned width = 1200;
-const unsigned height = 900;
+const unsigned width = 1920;
+const unsigned height = 1080;
 
 
 float skyboxVertices[] =
@@ -217,31 +217,33 @@ void drawnHouse(Model modelHouse, Camera camera, Shader shaderProgram, float ang
 void drawnHeliport(Model modelHeliport, Camera camera, Shader shaderProgram, float angleRadians)
 {
 
-	modelHeliport.Draw(shaderProgram, camera, glm::vec3(30.0f, -9.3f, -10.0f),
+	modelHeliport.Draw(shaderProgram, camera, glm::vec3(60.0f, -9.3f, -10.0f),
 		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(2.0f, 2.0f, 2.0f));
-	modelHeliport.Draw(shaderProgram, camera, glm::vec3(30.0f, -9.3f, 10.0f),
+	modelHeliport.Draw(shaderProgram, camera, glm::vec3(60.0f, -9.3f, 10.0f),
 		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(2.0f, 2.0f, 2.0f));
-	modelHeliport.Draw(shaderProgram, camera, glm::vec3(-30.0f, -9.3f, -10.0f),
+	modelHeliport.Draw(shaderProgram, camera, glm::vec3(-60.0f, -9.3f, -10.0f),
 		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(2.0f, 2.0f, 2.0f));
-	modelHeliport.Draw(shaderProgram, camera, glm::vec3(-30.0f, -9.3f, 10.0f),
+	modelHeliport.Draw(shaderProgram, camera, glm::vec3(-60.0f, -9.3f, 10.0f),
 		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(2.0f, 2.0f, 2.0f));
 
 }
 
-void drawnHelicopter(Model helicopter, Camera camera, Shader shaderProgram, float angleRadians)
+void drawnHelicopter(Model helicopter, Camera camera, Shader shaderProgram, float angleRadians, float baseHeight, float amplitude, float frequency, float time)
 {
-	helicopter.Draw(shaderProgram, camera, glm::vec3(-30.0f, -9.8f, 10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
-	helicopter.Draw(shaderProgram, camera, glm::vec3(-30.0f, -9.8f, -10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
-	helicopter.Draw(shaderProgram, camera, glm::vec3(30.0f, -9.8f, 10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
-	helicopter.Draw(shaderProgram, camera, glm::vec3(30.0f, -9.8f, -10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
+	float oscillatingHeight = baseHeight + (amplitude / 2) * sin(frequency * time);
 
-	helicopter.Draw(shaderProgram, camera, glm::vec3(26.0f, -2.0f, -13.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
-	helicopter.Draw(shaderProgram, camera, glm::vec3(30.0f, -2.0f, 0.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
-	helicopter.Draw(shaderProgram, camera, glm::vec3(26.0f, -2.0f, 13.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
 
-	helicopter.Draw(shaderProgram, camera, glm::vec3(-26.0f, -2.0f, -13.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
-	helicopter.Draw(shaderProgram, camera, glm::vec3(-30.0f, -2.0f, 0.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
-	helicopter.Draw(shaderProgram, camera, glm::vec3(-26.0f, -2.0f, 13.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
+
+	helicopter.Draw(shaderProgram, camera, glm::vec3(-60.0f, -oscillatingHeight, 10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(-60.0f, -oscillatingHeight, -10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(60.0f,  -oscillatingHeight, 10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(60.0f,  -oscillatingHeight, -10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
+
+	helicopter.Draw(shaderProgram, camera, glm::vec3(56.0f, 0.0f, -30.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(56.0f, 0.0f, 30.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
+
+	helicopter.Draw(shaderProgram, camera, glm::vec3(-56.0f, 0.0f, -30.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(-56.0f, 0.0f, 30.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(1.4f, 1.4f, 1.4f));
 }
 
 
@@ -380,8 +382,9 @@ int main()
 	glCullFace(GL_FRONT);
 	// Uses counter clock-wise standard
 	glFrontFace(GL_CCW);
-
-	Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
+	//0.565017 8.20533 135.247
+	//10.6728 -4.84423 107.023
+	Camera camera(width, height, glm::vec3(15.f, -4.2f, 125.0f));
 
 	std::filesystem::path currentDir = std::filesystem::current_path();
 
@@ -545,18 +548,23 @@ int main()
 		}
 	}
 
-
+	//18.5463 -9.71426 96.6869
 	Tank modelTank;
-	//Tank t1(modelTank), t2(modelTank);
+	modelTank.m_position = glm::vec3(15.0f, -10.0f, 93.0f);
+	Tank t1(modelTank), t2(modelTank);
+	
+	t1.tankSpeedFactor = 2.0f;
+	t1.m_position = glm::vec3(25.0f, -10.0f, 140.68f);
 
-	/*t1.m_position = glm::vec3(8.0f, -9.5f, 5.0f);
-	t1.m_headPosition = glm::vec3(8.17f, -9.5f, 5.0f);
-	t2.m_position = glm::vec3(3.0f, -9.5f, -5.0f);
-	t2.m_headPosition = glm::vec3(3.17f, -9.5f, -5.0f);*/
-	//main while loop
+	t2.tankSpeedFactor = 2.0f;
+	t2.m_position = glm::vec3(5.0f, -10.0f, 140.68f);
 
-
-	ThirdPersonCamera tpc(modelTank.m_position, 10.0f, 20.0f, 0.0f);
+	float h_height = 4.7f;
+	float value = 0.2f;
+	
+	float time = 0.0f;
+	float amplitude = 10.0f;  // height variation amplitude
+	float frequency = 1.0f;
 		
 	while (!glfwWindowShouldClose(window))
 	{
@@ -574,7 +582,6 @@ int main()
 
 	
 		//glUniformMatrix4fv(glGetUniformLocation(shaderProgram.ID, "camMatrix"), 1, GL_FALSE, glm::value_ptr(viewMatrix));
-
 
 		//std::cout << modelTank.m_headRotation.x << " " << modelTank.m_headRotation.y << " " << modelTank.m_headRotation.z << " " << "\n";
 		shaderProgram.Activate();
@@ -611,34 +618,33 @@ int main()
 		glm::quat rotation = glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, -1.0f));
 
 		//tank.Draw(shaderProgram, camera, glm::vec3(5.0f, 4.0f, 0.0f), glm::quat(0.0f, 0.0f, 0.0f, 0.0f), glm::vec3(0.5f, 0.5f, 0.5f));
-
+		time += deltaTime;
 		drawMountain(modelMountain, shaderProgram, camera);
 		drawnHouse(modelHouse, camera, shaderProgram, angleRadians);
 		drawnHeliport(modelHeliport, camera, shaderProgram, angleRadians);
 		drawnCactusModels(modelCactus, modelCactus2, shaderProgram, camera, angleRadians);
-		drawnHelicopter(heli, camera, shaderProgram, angleRadians);
+		drawnHelicopter(heli, camera, shaderProgram, angleRadians, h_height, amplitude, frequency, time);		
 		drawnStone(modelStone, camera, shaderProgram, angleRadians);
 	
 		//Tank drawing
 		modelTank.DrawBody(shaderProgram, camera);
 
 
-		/*t1.DrawBody(shaderProgram, camera);
-		t1.DrawHead(shaderProgram, camera);
+		t1.m_position += (t1.forward * t1.tankSpeedFactor * (float)deltaTime);
+		t2.m_position += (t2.tankSpeedFactor * t2.forward * (float)deltaTime);
 
+		
+		if (t2.m_position.z == -45.0f)
+			t2.tankSpeedFactor = 0.0f;
+		t1.DrawBody(shaderProgram, camera);
 		t2.DrawBody(shaderProgram, camera);
-		t2.DrawHead(shaderProgram, camera);*/
+		
+		
+
 
 		modelGround.Draw(shaderProgram, camera, glm::vec3(0.0f, -10.0f, 0.0f), glm::quat(glm::vec3(0.0f, 0.0f, 0.0f)), glm::vec3(1.0f, 1.0f, 1.0f));//colt dreapta
-		int numInstances = 10;
-		float ySpacing = 40.0f;
+	
 
-		for (int i = 0; i < numInstances; i++) {
-			float yOffset = -30.0f + ySpacing * i;
-			//modelGround.Draw(shaderProgram, camera, glm::vec3(-12.0f, yOffset, 0.0f), glm::quat(glm::vec3(4.0f, 4.5f, 0.0f)), glm::vec3(3.0f, 3.0f, 3.0f));
-		}
-
-		//glm::quat(glm::radians(-90.0f), glm::vec3(0.0f, 1.1f, 0.2f))
 		// Since the cubemap will always have a depth of 1.0, we need that equal sign so it doesn't get discarded
 		glDepthFunc(GL_LEQUAL);
 
@@ -647,9 +653,7 @@ int main()
 		skyboxShader.Activate();
 		glUniform1f(glGetUniformLocation(skyboxShader.ID, "blendFactor"), blendFactor);
 
-		//aici pui si blendfactorul de la lumina
-
-
+		//std::cout << "\n\n" << camera.Position.x << " " << camera.Position.y << " " << camera.Position.z;
 
 		glm::mat4 view = glm::mat4(1.0f);
 		glm::mat4 projection = glm::mat4(1.0f);
