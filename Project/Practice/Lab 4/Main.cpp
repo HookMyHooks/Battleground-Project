@@ -217,15 +217,44 @@ void drawnHouse(Model modelHouse, Camera camera, Shader shaderProgram, float ang
 void drawnHeliport(Model modelHeliport, Camera camera, Shader shaderProgram, float angleRadians)
 {
 
-	modelHeliport.Draw(shaderProgram, camera, glm::vec3(20.0f, -9.6f, -10.0f),
-		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
-	modelHeliport.Draw(shaderProgram, camera, glm::vec3(20.0f, -9.6f, 10.0f),
-		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
-	modelHeliport.Draw(shaderProgram, camera, glm::vec3(-20.0f, -9.6f, -10.0f),
-		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
-	modelHeliport.Draw(shaderProgram, camera, glm::vec3(-20.0f, -9.6f, 10.0f),
-		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(1.0f, 1.0f, 1.0f));
+	modelHeliport.Draw(shaderProgram, camera, glm::vec3(30.0f, -9.3f, -10.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(2.0f, 2.0f, 2.0f));
+	modelHeliport.Draw(shaderProgram, camera, glm::vec3(30.0f, -9.3f, 10.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(2.0f, 2.0f, 2.0f));
+	modelHeliport.Draw(shaderProgram, camera, glm::vec3(-30.0f, -9.3f, -10.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(2.0f, 2.0f, 2.0f));
+	modelHeliport.Draw(shaderProgram, camera, glm::vec3(-30.0f, -9.3f, 10.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, 1.0f))), glm::vec3(2.0f, 2.0f, 2.0f));
 
+}
+
+void drawnHelicopter(Model helicopter, Camera camera, Shader shaderProgram, float angleRadians)
+{
+	helicopter.Draw(shaderProgram, camera, glm::vec3(-30.0f, -9.8f, 10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(-30.0f, -9.8f, -10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(30.0f, -9.8f, 10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(30.0f, -9.8f, -10.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
+
+	helicopter.Draw(shaderProgram, camera, glm::vec3(26.0f, -2.0f, -13.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(30.0f, -2.0f, 0.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(26.0f, -2.0f, 13.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
+
+	helicopter.Draw(shaderProgram, camera, glm::vec3(-26.0f, -2.0f, -13.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(-30.0f, -2.0f, 0.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
+	helicopter.Draw(shaderProgram, camera, glm::vec3(-26.0f, -2.0f, 13.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(0.5f, 0.5f, 0.5f));
+}
+
+
+void drawnStone(Model modelStone,Camera camera, Shader shaderProgram, float angleRadians)
+{
+	modelStone.Draw(shaderProgram, camera, glm::vec3(84.0f, -75.0f, 7.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(3.0f, 3.0f, 3.0f));
+	modelStone.Draw(shaderProgram, camera, glm::vec3(78.0f, -75.0f, 7.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(5.0f, 3.0f, 3.0f));
+	modelStone.Draw(shaderProgram, camera, glm::vec3(-88.0f, -75.0f, 7.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(5.0f, 3.0f, 3.0f));
+	modelStone.Draw(shaderProgram, camera, glm::vec3(-82.0f, -75.0f, 7.0f),
+		glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(4.0f, 3.0f, 3.0f));
 }
 
 
@@ -585,19 +614,12 @@ int main()
 		drawnHouse(modelHouse, camera, shaderProgram, angleRadians);
 		drawnHeliport(modelHeliport, camera, shaderProgram, angleRadians);
 		drawnCactusModels(modelCactus, modelCactus2, shaderProgram, camera, angleRadians);
-
-		modelStone.Draw(shaderProgram, camera, glm::vec3(84.0f, -75.0f, 7.0f),
-			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(3.0f, 3.0f, 3.0f));
-		modelStone.Draw(shaderProgram, camera, glm::vec3(78.0f, -75.0f, 7.0f),
-			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(5.0f, 3.0f, 3.0f));
-		modelStone.Draw(shaderProgram, camera, glm::vec3(-88.0f, -75.0f, 7.0f),
-			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(5.0f, 3.0f, 3.0f));
-		modelStone.Draw(shaderProgram, camera, glm::vec3(-82.0f, -75.0f, 7.0f),
-			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(4.0f, 3.0f, 3.0f));
+		drawnHelicopter(heli, camera, shaderProgram, angleRadians);
+		drawnStone(modelStone, camera, shaderProgram, angleRadians);
+	
 		//Tank drawing
-
-		heli.Draw(shaderProgram, camera, glm::vec3(-20.0f, -10.0f,6.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(0.5f,0.5f,0.5f));
 		modelTank.DrawBody(shaderProgram, camera);
+
 
 		/*t1.DrawBody(shaderProgram, camera);
 		t1.DrawHead(shaderProgram, camera);
