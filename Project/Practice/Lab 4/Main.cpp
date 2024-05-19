@@ -356,8 +356,9 @@ int main()
 
 	std::filesystem::path currentDir = std::filesystem::current_path();
 
-	std::string modelPath = "Models/helicopter/scene.gltf";
-	//Model modelHelicopter(modelPath.c_str());
+	std::string modelPath;
+	/*modelPath="Models/helicopter/h/scene.gltf";
+	Model heli(modelPath.c_str());*/
 
 	modelPath = "Models/airplane/scene.gltf";
 	//Model modelAirplane(modelPath.c_str());
@@ -387,6 +388,8 @@ int main()
 	modelPath = "Models/tank/tank.gltf";
 	Model tank(modelPath.c_str());
 
+	modelPath = "Models/helicopter/h/scene.gltf";
+	Model heli(modelPath.c_str());
 
 
 
@@ -572,7 +575,6 @@ int main()
 		camera.Inputs(window);
 		camera.updateMatrix(45.0f, 0.1f, 5000.0f);
 
-		//modelHelicopter.Draw(shaderProgram, camera, glm::vec3(-1.0f, 0.0f, 1.0f), glm::quat(1.0f, 0.0f, 0.0f, 0.0f), glm::vec3(1.0f,1.0f,1.0f));
 		
 		float angleRadians = glm::radians(90.0f);
 		glm::quat rotation = glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, -1.0f));
@@ -594,6 +596,7 @@ int main()
 			glm::quat(glm::angleAxis(angleRadians, glm::vec3(0.0f, -1.0f, 0.0f))), glm::vec3(4.0f, 3.0f, 3.0f));
 		//Tank drawing
 
+		heli.Draw(shaderProgram, camera, glm::vec3(-20.0f, -10.0f,6.0f), glm::angleAxis(glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f)), glm::vec3(0.5f,0.5f,0.5f));
 		modelTank.DrawBody(shaderProgram, camera);
 
 		/*t1.DrawBody(shaderProgram, camera);
