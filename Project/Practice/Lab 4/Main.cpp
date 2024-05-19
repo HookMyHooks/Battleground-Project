@@ -4,6 +4,7 @@ namespace fs = std::filesystem;
 
 #include "Model.h"
 #include "Tank.h"
+#include "ThirdPersonCamera.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
@@ -227,7 +228,21 @@ void drawnHeliport(Model modelHeliport, Camera camera, Shader shaderProgram, flo
 
 }
 
-void processInput(GLFWwindow* window)
+
+void UpdateCamera(Tank& tank, ThirdPersonCamera& camera)
+{
+	// Update the camera to always look at the tank's position
+	camera.SetTargetPosition(tank.m_position);
+
+	// Optionally update yaw based on tank's rotation if needed
+	camera.SetYaw(tank.GetYaw());
+
+	// You may need to handle pitch if you want vertical rotation based on user input
+}
+
+
+
+void processInput(GLFWwindow* window, Tank& tank, double deltaTime)
 {
 	if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
 	{
@@ -242,6 +257,17 @@ void processInput(GLFWwindow* window)
 	}
 	if (mixValue < 0.5f)
 		mixValue = 0.5f;
+
+
+	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+		tank.ProcessInput(FORWARD, (float)deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+		tank.ProcessInput(BACKWARD, (float)deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+		tank.ProcessInput(LEFT, (float)deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+		tank.ProcessInput(RIGHT, (float)deltaTime);
+
 }
 
 
@@ -271,7 +297,6 @@ int main()
 	}
 	glfwMakeContextCurrent(window);
 	glewInit();
-
 
 
 	Shader shaderProgram("default.vert", "default.frag");
@@ -358,6 +383,10 @@ int main()
 
 	modelPath = "Models/stone/scene.gltf";
 	Model modelStone(modelPath.c_str());
+
+	modelPath = "Models/tank/tank.gltf";
+	Model tank(modelPath.c_str());
+
 
 
 
@@ -484,13 +513,17 @@ int main()
 
 
 	Tank modelTank;
-	Tank t1(modelTank), t2(modelTank);
+	//Tank t1(modelTank), t2(modelTank);
 
-	t1.m_position = glm::vec3(8.0f, -9.5f, 5.0f);
+	/*t1.m_position = glm::vec3(8.0f, -9.5f, 5.0f);
 	t1.m_headPosition = glm::vec3(8.17f, -9.5f, 5.0f);
 	t2.m_position = glm::vec3(3.0f, -9.5f, -5.0f);
-	t2.m_headPosition = glm::vec3(3.17f, -9.5f, -5.0f);
+	t2.m_headPosition = glm::vec3(3.17f, -9.5f, -5.0f);*/
 	//main while loop
+
+
+	ThirdPersonCamera tpc(modelTank.m_position, 10.0f, 20.0f, 0.0f);
+		
 	while (!glfwWindowShouldClose(window))
 	{
 		//per-frame time logic 
@@ -498,10 +531,16 @@ int main()
 		deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
 
-		processInput(window);
-		modelTank.ProcessInput(window, deltaTime);
+		processInput(window, modelTank, deltaTime);
+		//modelTank.ProcessInput(window, deltaTime);
 
-		modelTank.UpdateRotationRadians();
+		UpdateCamera(modelTank, tpc);
+		glm::mat4 viewMatrix = tpc.GetViewMatrix();
+
+
+	
+		glUniformMatrix4fv(glGetUniformLocation(shaderProgram.ID, "camMatrix"), 1, GL_FALSE, glm::value_ptr(viewMatrix));
+
 
 		//std::cout << modelTank.m_headRotation.x << " " << modelTank.m_headRotation.y << " " << modelTank.m_headRotation.z << " " << "\n";
 		shaderProgram.Activate();
@@ -538,7 +577,7 @@ int main()
 		float angleRadians = glm::radians(90.0f);
 		glm::quat rotation = glm::angleAxis(angleRadians, glm::vec3(0.0f, 0.0f, -1.0f));
 
-
+		//tank.Draw(shaderProgram, camera, glm::vec3(5.0f, 4.0f, 0.0f), glm::quat(0.0f, 0.0f, 0.0f, 0.0f), glm::vec3(0.5f, 0.5f, 0.5f));
 
 		drawMountain(modelMountain, shaderProgram, camera);
 		drawnHouse(modelHouse, camera, shaderProgram, angleRadians);
@@ -556,7 +595,6 @@ int main()
 		//Tank drawing
 
 		modelTank.DrawBody(shaderProgram, camera);
-		modelTank.DrawHead(shaderProgram, camera);
 
 		/*t1.DrawBody(shaderProgram, camera);
 		t1.DrawHead(shaderProgram, camera);
