@@ -259,13 +259,13 @@ void processInput(GLFWwindow* window, Tank& tank, double deltaTime)
 		mixValue = 0.5f;
 
 
-	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
 		tank.ProcessInput(FORWARD, (float)deltaTime);
-	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
 		tank.ProcessInput(BACKWARD, (float)deltaTime);
-	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
 		tank.ProcessInput(LEFT, (float)deltaTime);
-	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
 		tank.ProcessInput(RIGHT, (float)deltaTime);
 
 }
@@ -534,12 +534,12 @@ int main()
 		processInput(window, modelTank, deltaTime);
 		//modelTank.ProcessInput(window, deltaTime);
 
-		UpdateCamera(modelTank, tpc);
-		glm::mat4 viewMatrix = tpc.GetViewMatrix();
+		//UpdateCamera(modelTank, tpc);
+		//glm::mat4 viewMatrix = tpc.GetViewMatrix();
 
 
 	
-		glUniformMatrix4fv(glGetUniformLocation(shaderProgram.ID, "camMatrix"), 1, GL_FALSE, glm::value_ptr(viewMatrix));
+		//glUniformMatrix4fv(glGetUniformLocation(shaderProgram.ID, "camMatrix"), 1, GL_FALSE, glm::value_ptr(viewMatrix));
 
 
 		//std::cout << modelTank.m_headRotation.x << " " << modelTank.m_headRotation.y << " " << modelTank.m_headRotation.z << " " << "\n";
